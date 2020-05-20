@@ -140,7 +140,7 @@ function  a ( )  {
     b();
 }
 a();
-
+```
 
 ```text
 a defined a.[[scope]] --> 0:GO
