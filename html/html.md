@@ -4,11 +4,11 @@ HTML Introduction
 When I first entered the front-end field, the first term I heard was estimated to be HTML. Write a few lines of HTML and open the browser to see the effect immediately. What you see is what you get at the front end. This is also its charm. What? What are its rules and what role does it play?
 
 
-### What is HTML
+### [](#an5ygw)What is HTML
 
 The full name of HTML is HyperText Markup Language, which is not a programming language but a markup language. HTML uses tags to describe web pages, open the computer's notepad, write a section of HTML, save it as a .html file, double-click to open with a browser, and you can immediately see the rendered web page. HTML is the skeleton of the front end. If you compare it to a house, HTML is brick and tile, reinforced concrete. It contains elements such as titles, paragraphs, pictures, and videos of web pages. Right-click on any website we browse in Chrome. Under the Elements column, we can see a variety of HTML tags, which are the cornerstones of the web pages we browse.
 
-### Composition of HTML elements
+### [](#3ugyoa)Composition of HTML elements
 
 HTML elements consist of nested content of tags, and HTML elements can be nested. Let's take a look at the next simple HTML element:
 
@@ -23,7 +23,7 @@ In some HTML elements, they do not need to contain content, the above "I am a pa
 
 HTML elements can be nested. For example, I want to italicize a paragraph. I can do this:
 
-  
+
 ```html
 <p> I am a paragraph, <i> I am the italic part of the paragraph </i> </p>
 ```
@@ -39,13 +39,12 @@ HTML tags can have attributes, which are placed in the opening tag, with spaces 
 The attribute src specifies the url address of the image, and the alt attribute defines the alternative text. When the browser cannot load the image, the browser will display the alternative text. You can click [here to](https://codepen.io/zouguanghua/pen/wQVOKY) see the effect.
 
 
-### Block-level elements and inline elements
+### [](#a7e4gi)Block-level elements and inline elements
 
 HTML elements have some features that make them behave differently in browsers. We divide HTML elements into block-level elements and inline elements. Their performance in browsers is as follows:
 
 *   Block-level elements are displayed in the form of blocks. They always occupy a single line and squeeze the following elements into a new line;
     
-
 *   The elements in the line are displayed next to each other, and will not wrap automatically. The elements in the line are usually nested and displayed by block-level elements.
 
 ```html
@@ -55,8 +54,8 @@ HTML elements have some features that make them behave differently in browsers. 
 
 In the above example, the p element is always displayed on a single line, it is a block-level element, and the i and span elements are not line breaks, but are inline elements. You can click [here to](https://codepen.io/zouguanghua/pen/WYVWJR) see the effect.
 
-### A simple HTML example
-  
+### [](#ku0npb)A simple HTML example
+
 Opening different websites, we will find that they have a similar structure. Below is a simple example, let's take a look at what constitutes a complete HTML page.
 
 
@@ -73,7 +72,7 @@ Opening different websites, we will find that they have a similar structure. Bel
 </html>
 ```
 
-#### DOCTYPE
+#### [](#y5m5rt)DOCTYPE
 
 <! DOCTYPE> is a document type declaration, which is used to tell the browser what rules to use to parse HTML elements. In HTML 4.01, the document type declaration needs to refer to [DTD](https://zh.wikipedia.org/wiki/%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89) (Document Type Definition) because HTML 4.01 is based on [SGML](https://zh.wikipedia.org/wiki/SGML) (Standard Generalized Markup Language). There are two concepts here, related to the history of HTML development, you can simply familiarize yourself. DTD stipulates the rules of markup language so that the browser can display the content correctly.
 
@@ -93,6 +92,7 @@ The head element is the head element, and the content it contains will not be di
 
 *   <meta> tags provide page information data, in the example `<meta charset="utf-8">`is defined using the document utf-8 character encoding. At the same time, you can also set the page description, keywords and other information through the <meta> tag, which is conducive to SEO (Search Engine Optimization, search engine optimization), which is to use the rules of the search engine to improve the natural ranking of the website in the relevant search engine . In layman's terms, when users search the page, your website will be more advanced.
     
+    
 ```html
 <meta  name = "description"  content = "descriptive information of the site" \> 
 <meta  name = "keywords"  content = "Web site keywords" \>
@@ -101,7 +101,6 @@ The head element is the head element, and the content it contains will not be di
 
 *   The `<title>` tag defines the title of the page. We open a page in the browser, and the title on the browser's tab bar is defined by it.
     
-
 *   The `<link>` tag is usually used to link some external resources related to the page, such as css files. We can also set the icon on the tab bar of the browser through the `<link>` tag.
     
 ```html    
@@ -131,6 +130,67 @@ The `body` `element` defines the `body` of the document and contains all the `co
 The above is a simple HTML page composition module, HTML tags are rich in variety, master their use, you can write a list, a form, or a submission form, it is recommended to read the w3school [HTML tutorial](http://www.w3school.com.cn/html/index.asp) , it is recommended to master It will be much easier to read the following chapters after HTML.
 
 
-### HTML semantics
+### [](#r98fow)HTML semantics
 
-HTML semantics means that the general structure of the page can be seen only from the HTML elements. For example, the content that needs to be emphasized can be placed in the <strong> tag, rather than by setting the <span> tag. Different browsers may parse HTML elements differently. HTML semantics means that after setting aside style, the page can have a friendly display effect. We strive to make the page have a good structure, make the elements of the page meaningful, and at the same time help to be parsed by search engines and SEO. HTML semantic suggestions:
+HTML semantics means that the general structure of the page can be seen only from the HTML elements. For example, the content that needs to be emphasized can be placed in the `<strong>` tag, rather than by setting the `<span>` tag. Different browsers may parse HTML elements differently. HTML semantics means that after setting aside style, the page can have a friendly display effect. We strive to make the page have a good structure, make the elements of the page meaningful, and at the same time help to be parsed by search engines and SEO. HTML semantic suggestions:
+
+*   Use meaningless `<div>` and `<span>` tags;
+    
+*   Set the for attribute in the <label> tag and associate it with the corresponding <input>;
+    
+*   Set the alt attribute of the <img> tag and set the title attribute of the <a> tag, which is good for SEO;
+    
+*   Use <h1> ~ <h6> tags in the title part of the page, you do n’t need to add extra style to them;
+    
+*   Do not use labels related to forms, ordered lists, and unordered lists separately.
+
+HTML5 also added some semantic elements, we can judge the content of the label by the label name. The structure of a page using semantic elements is as follows:
+    
+ ![](https://cdn.nlark.com/yuque/0/2018/png/199663/1544180720457-6e1c631d-4a2e-4c29-9afa-c6668256a369.png) 
+(Example of use of semantic elements)
+
+The names of semantic elements are actually very easy to understand. The following are their functions and usages:
+*   The `<header>` tag is usually placed on the top of the page or a certain area of ​​the page to set the header;
+    
+*   The `<nav>` tag can be used to define a collection of navigation links, click on the link to jump to other pages;
+
+*   The content in the `<article>` tag is relatively independent, it can be a news report, a blog, it can be read independently of other content on the page;
+    
+*   The `<section>` tag represents an area on the page. Usually, the page is divided into blocks or the content is segmented. The `<section>` tag and the `<article>` tag can be nested with each other;
+    
+*   The `<aside>` tag is used to represent content other than the main content of the page, such as the sidebar;
+    
+*   The `<footer>` tag is located at the bottom of the page or a certain area of ​​the page and is used to set the footer. It usually contains copyright information and contact information.
+
+### [](#lcvawb)summary
+
+
+This article briefly introduces the role of HTML and the components of HTML elements, and how to better use HTML, which is semantic. In this section, you need to master:
+
+*   HTML elements are composed of parts;
+*   Distinguish between block-level elements and inline elements;
+*   Understand the general structure of HTML documents;
+*   HTML semantics;
+*   Read HTML tutorials and master the usage of HTML elements.
+
+This article comes from
+
+#### [Nine Frontends-Beginner's Manual 2019](/fe9/basic)
+
+#### [Nine Department Knowledge Base-Selected Collection](/fe9/select)
+
+https://github.com/frontend9/fe9-library
+
+
+#### [Nine Departments-Interview Questions Collection](/fe9/interview)
+
+*   [What is HTML](#an5ygw "What is HTML")
+*   [Composition of HTML elements](#3ugyoa "Composition of HTML elements")
+*   [Block-level elements and inline elements](#a7e4gi "Block-level elements and inline elements")
+*   [A simple HTML example](#ku0npb "A simple HTML example")
+*   [DOCTYPE](#y5m5rt "DOCTYPE")
+*   [html](#html "html")
+*   [head](#8lnbep "head")
+*   [body](#gfxnpv "body")
+*   [HTML semantics](#r98fow "HTML semantics")
+*   [summary](#lcvawb "summary")
