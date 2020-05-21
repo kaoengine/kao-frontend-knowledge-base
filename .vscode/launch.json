@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/src/functional-programming.js"
+            "program": "${workspaceFolder}/src/promise.js"
         }
     ]
 }
