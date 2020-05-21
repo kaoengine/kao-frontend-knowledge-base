@@ -66,3 +66,24 @@ const  arrAdd  =  ( value ) => {
 arrAdd ( 3 ) // [1, 2, 3] 
 arrAdd ( 3 ) // [1, 2, 3] 
 ```
+
+> In the postscript 1, sorted out whether the array string method had an effect on the original value
+
+* Function currying: Convert multiple input functions into one input function;
+```js
+const add = a => b => c => a + b + c
+add(1)(2)(3)
+```
+
+* Partial function: convert multiple input functions into two parts;
+```js
+const add = a => (b,c)=> a+ b+ c
+add(1)(2,3)
+```
+* Can be combined: functions can be combined
+```js
+const add = (x) => x+x
+const mult = (x) => x*x
+const addAndMult = (x) => add(mult(x))
+```
+
