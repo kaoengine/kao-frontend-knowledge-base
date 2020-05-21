@@ -221,3 +221,12 @@ Under normal circumstances, this demo should be output B D C A. This involves th
   • MicroTask: promise
 
 >Since this project setTimeout promise is implemented, so the demo above, the output is the result of this project B D A C, the solution: may be used setImmediate alternatively setTimeout, can refer [setImmediate.js](https://github.com/YuzuJS/setImmediate).Its essence uses some hacking methods, such as borrowing postMessage to operate the event loop.
+
+#### Thinking: How does promise.all make multiple setTimeout run concurrently?
+This is the essence of promise.all (). The browser provides an event loop mechanism to simulate pseudo 'concurrency'
+
+```js
+var oldTime = Date.now()
+setTimeout(() => {console.log(Date.now() - oldTime)}, 1000) // 1001 ~ 1005(存在 4ms 的波动)
+setTimeout(() => {console.log(Date.now() - oldTime)}, 2000) // 2001 ~ 2005
+```
