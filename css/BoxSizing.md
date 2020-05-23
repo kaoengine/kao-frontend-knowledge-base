@@ -2,7 +2,7 @@
 
 ## The CSS box-sizing sets the way the total width and height of HTML elements should be calculated.
 
-- CSS box-sizing property makes sure that `padding and borders do __not increase__ the width and height of elements`.
+- CSS box-sizing property makes sure that `padding and borders` **do not increase** `the width and height of elements`.
 
 - Set box-sizing to CSS border-box to `guarantee that the element size includes borders and padding`.
 
@@ -10,9 +10,9 @@
 
 ### `The box model` follows these **principles**:
 
-- CSS calculates the `width` of elements by **adding** the `width`, `padding left and padding right`, and `border width * 2` together.
+- CSS calculates the `width` of elements by **adding** the `width`, `padding left and padding right`, and `right border and left border` together.
 
-- CSS calculates the `height` of elements by **adding** the `height`, `padding top and padding bottom`, and `border width * 2` together.
+- CSS calculates the `height` of elements by **adding** the `height`, `padding top and padding bottom`, and `top border and bottom border` together.
   As a result, developers need to adjust values when setting width and height to leave space for borders and padding.
 
 For an example, there are two `<div>` elements:
