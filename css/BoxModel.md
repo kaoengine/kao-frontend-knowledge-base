@@ -130,7 +130,7 @@ Due to the differences in browsers, box models are divided into standard box mod
 
 <p align="center">(.box_2 renderings)<p>
 
-The above two figures show the differences between the two box models. box\*1 is the standard box model and the specification of W3C; .box_2 is the old IE browser [Weird mode](https://zh.wikipedia.org/wiki/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F) Use your own non-standard model, also known as IE box model. In the standard box model by setting \*\*\*`box-sizing: border-box`\_\*\*; Can be converted to IE box model.
+The above two figures show the differences between the two box models. box_1 is the standard box model and the specification of W3C; .box_2 is the old IE browser [Weird mode](https://zh.wikipedia.org/wiki/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F) Use your own non-standard model, also known as IE box model. In the standard box model by setting \*\*\*`box-sizing: border-box`\_\*\*; Can be converted to IE box model.
 
 #### Standard box model
 
