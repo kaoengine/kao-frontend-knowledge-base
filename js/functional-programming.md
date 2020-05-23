@@ -87,3 +87,90 @@ const mult = (x) => x*x
 const addAndMult = (x) => add(mult(x))
 ```
 
+### Curry
+
+The following is an addition function:
+```js
+var add = (a, b ,c) => a+ b +c
+add(1,2,3) //6
+```
+
+If there is such a `curry` function, with the packaging `add` after the function returns a new function `curryAdd`, we can parameter `a,b` be passed separately invoked.
+```js
+var  curryAdd  =  curry ( add )
+// The following output results are the same
+curryAdd ( 1 , 2 , 3 ) // 6   
+curryAdd ( 1 , 2 ) ( 3 ) // 6  
+curryAdd ( 1 ) ( 2 ) ( 3 ) // 6 
+curryAdd ( 1 ) ( 2 , 3 ) // 6  
+```
+
+#### Hands-on implementation of a curry function
+
+The core idea: If the number of parameters passed into it does not reach the curryAddnumber, then the parameters are buffered in the closure variable lists
+
+```js
+function curry(fn, ...args) {
+  const length = fn.length
+  let lists = args || []
+  let listLen
+  return function (..._args) {
+    lists = [...lists, ..._args]
+    listLen = lists.length
+    if (listLen < length) {
+      const that = lists
+      lists = []
+      return curry(fn, ...that)
+    } else if (listLen === length) {
+      const that = lists
+      lists = []
+      return fn.apply(this, that)
+    }
+  }
+}
+```
+
+### Code composition (compose)
+There are `toUpperCase`, `reverse`, `head` three functions are as follows:
+
+```js
+var toUppercase = (str) => str.toUpperCase()
+var reverse = (arr) => arr.reverse()
+var head = (arr)=> arr[0]
+```
+Then use them to capitalize the output of the last element of the array, you can do this:
+
+```js
+var  reverseHeadUpperCase  =  ( arr ) => toUpperCase ( head ( reverse ( arr ) ) )  
+reverseHeadUpperCase ( [ 'apple' , 'banana' , 'peach' ] ) // PEACH   
+```
+
+At this point in the construction of reverseHeadUpperCasethe time function, you must manually declare the incoming parameters arr, it can provide a composefunction allowing users to use it more user-friendly form similar to the following?:
+
+```js
+var  reverseHeadUpperCase  =  compose ( toUpperCase , head , reverse )  
+reverseHeadUpperCase ( [ 'apple' , 'banana' , 'peach' ] ) // PEACH   
+```
+
+Moreover `compose` function in line composing, we can use like this:
+```js
+compose(compose(toUpercase,head), reverse)
+ompose ( toUpperCase , compose ( head , reverse ) )
+```
+Written with two or more `compose(toUppercase, head, reverse)` of exactly the same effect, it is successively from right to left in the reference function execution pass.
+In addition `compose` and `map` when used in conjunction with relevent laws have equal effect two wording
+```js
+compose(map(f),map(g))
+map(compose(f,g))
+```
+
+
+### Hands-on implementation of a compose function
+The essence of the code is concentrated in one line, which is adopted by many open source libraries (such as Redux).
+
+```js
+var compose = (...args) => (initValue) => args.reduceRight((a, c) => c(a), initValue)
+```
+
+
+sssss
