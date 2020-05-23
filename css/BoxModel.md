@@ -72,7 +72,7 @@ Open "developer tool" in the browser, use the leftmost arrow icon to select the 
 
 ![Alt text](/images/paddingDetail.png)
 
-<p align="center">(The green part is padding, and the corresponding padding values are displayed on the top, bottom, left, right, and right)<p>
+<p align="center">(The green part is padding, and the corresponding padding values are displayed on the top, bottom, left, and right)<p>
 
 #### Margin refers to the outer margin, which is used to define the space around the element.
 
