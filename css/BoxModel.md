@@ -130,7 +130,7 @@ Due to the differences in browsers, box models are divided into standard box mod
 
 <p align="center">(.box_2 renderings)<p>
 
-The above two figures show the differences between the two box models. box_1 is the standard box model and the specification of W3C; .box_2 is the old IE browser [Weird mode](https://zh.wikipedia.org/wiki/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F) Use your own non-standard model, also known as IE box model. In the standard box model by setting **_`box-sizing: border-box`_**; Can be converted to IE box model.
+The above two figures show the differences between the two box models. box*1 is the standard box model and the specification of W3C; .box_2 is the old IE browser [Weird mode](https://zh.wikipedia.org/wiki/%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F) Use your own non-standard model, also known as IE box model. In the standard box model by setting \*\**`box-sizing: border-box`\_\*\*; Can be converted to IE box model.
 
 #### Standard box model
 
@@ -153,6 +153,8 @@ In. box_1, the width of the box is 150, which is calculated by `100+5*2+20+20`; 
 - The size of the box depends on the width and height. Modifying the border and padding values cannot change the size of the box.
 
 In the effect diagram of. box_2, we can see that the size of the box is equal to the width and height of the element. In the IE box model, the space of border and padding will squeeze the space of content, making the width and height of the element content smaller than the value (100px) set by width and height.
+
+[To Know More box-sizing attribute](BoxSizing.md)
 
 ### Browser compatibility and others
 
