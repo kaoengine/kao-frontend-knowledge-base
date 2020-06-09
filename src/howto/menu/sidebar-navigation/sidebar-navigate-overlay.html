@@ -41,11 +41,6 @@
             font-size: 36px;
             margin-left: 50px;
         }
-        /* get rid this stuff what will happend */
-        #main {
-            transition: margin-left .9s;
-            padding: 16px;
-        }
 
         @media screen and (max-height: 450px) {
             .sidenav {
@@ -69,21 +64,17 @@
         <a href="#">Contact</a>
     </div>
 
-    <div id="main">
-        <h2>Animated Sidenav -PUSH Example</h2>
-        <p>Click on the element below to open the side navigation menu.</p>
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-    </div>
+    <h2>Animated Sidenav Example</h2>
+    <p>Click on the element below to open the side navigation menu.</p>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 
     <script>
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
         }
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
         }
     </script>
 
