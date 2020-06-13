@@ -2,7 +2,7 @@
 
 In the traditional way, we usually set the display, position, float and other attributes of the box model for layout, which is not very convenient for some special layouts, such as vertical center and horizontal center, if the floating feature is applied, it is necessary to clear the floating, which is not only troublesome, but also may cause unexpected layout accidentally, and the final result is often unsatisfactory.
 
-`Flexbox` (full name: Flexible Box) layout, also known as Flex layout, means "Flexible layout". As the name implies, elements in Flex layout have scalability. Yes, by setting the display attribute of the parent elementdisplay: `flex | inline-flex`; Its child elements have scalability. Even if the width and height of the child elements are uncertain, the alignment, proportion, and spatial distribution of the child elements can be determined by setting relevant css attributes.
+`Flexbox` (full name: Flexible Box) layout, also known as Flex layout, means "Flexible layout". As the name implies, elements in Flex layout have scalability. Yes, by setting the display attribute of the parent element display: `flex | inline-flex`; Its child elements have scalability. Even if the width and height of the child elements are uncertain, the alignment, proportion, and spatial distribution of the child elements can be determined by setting relevant css attributes.
 
 ### Some Concepts
 
