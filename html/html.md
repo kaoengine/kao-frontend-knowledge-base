@@ -76,17 +76,74 @@ Opening different websites, we will find that they have a similar structure. Bel
 
 <! DOCTYPE> is a document type declaration, which is used to tell the browser what rules to use to parse HTML elements. In HTML 4.01, the document type declaration needs to refer to [DTD](https://zh.wikipedia.org/wiki/%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89) (Document Type Definition) because HTML 4.01 is based on [SGML](https://zh.wikipedia.org/wiki/SGML) (Standard Generalized Markup Language). There are two concepts here, related to the history of HTML development, you can simply familiarize yourself. DTD stipulates the rules of markup language so that the browser can display the content correctly.
 
+##### THE !DOCTYPE DECLARATION
+Every HTML document must begin with a basic declaration that identifies its type. This is a very useful measure that inform browsers beforehand, what type of document they are about to process, allowing them to adjust their processing mechanisms accordingly.
+ex:
+**HTML 4.01**
+* STRICT
+ ```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+```
+* TRANSITIONAL
+```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+```
+* FRAMESET
+```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+```
+
 HTML5 is not based on SGML, so no need to introduce DTD, only `<!DOCTYPE html>`they were on the document type declaration. The document type declaration must be placed on the first line of the HTML document.
 
 #### [](#html)html
 
   
 
-As you can see, the html element is at the outermost level of the entire HTML document. It is the root element and wraps a complete page.
+As you can see, the html element is at the outermost level of the entire HTML document. It is the root element and wraps a complete page, and besides acting as a container, it provides a good chance to define the default language used by the document, through the global attribute `lang`.
+
+> Declaring the language used in a document is particularly important for users relying on speech synthesizers, as it provides key information for determining the correct pronunciation.
 
 #### [](#8lnbep)head
 
-  
+```html
+<head>
+
+  <title>Buoi 3</title>
+
+  <meta name="keywords" content="IMIC, FE, Basic">
+
+  <meta name="description" content="This document approaches briefly the works of Front-end Buoi 3...">
+
+  <meta name="Author" content="Quan Tran">
+
+  <style>
+
+    table {
+
+      width: 100%;
+
+      border-color: black;
+
+    }
+
+  </style>
+
+  <script>
+
+    result = 0;
+
+    function increment(amount) {
+
+      result += amount;
+
+    }
+
+  </script>
+
+  <link rel="index" href="../index.html">
+
+</head>
+```
 
 The head element is the head element, and the content it contains will not be displayed on the page. The head element can contain header information, meta information, style sheets, and scripts. In the above example, we added some other elements to the head element, let's see what they do.
 
@@ -194,3 +251,8 @@ https://github.com/frontend9/fe9-library
 *   [body](#gfxnpv "body")
 *   [HTML semantics](#r98fow "HTML semantics")
 *   [summary](#lcvawb "summary")
+
+# HTML
+
+1. `<script>`, `<script defer = "defer">`, `<script async = "async">` What is the difference between load the script they are?
+The answer: javascript script loaded in three ways, namely `<script>`, `<script defer = "defer">`, `<script async = "async">`.
