@@ -1,9 +1,6 @@
 HTML Introduction
 =================
 
-When I first entered the front-end field, the first term I heard was estimated to be HTML. Write a few lines of HTML and open the browser to see the effect immediately. What you see is what you get at the front end. This is also its charm. What? What are its rules and what role does it play?
-
-
 ### [](#an5ygw)What is HTML
 
 Tên đầy đủ của HTML là HyperText Markup Language, đây không phải là ngôn ngữ lập trình mà là ngôn ngữ đánh dấu. HTML sử dụng các thẻ để mô tả các trang web, mở notepad của máy tính, viết một phần của HTML, lưu nó dưới dạng tệp .html, nhấp đúp để mở bằng trình duyệt và bạn có thể thấy ngay trang web được hiển thị. HTML là bộ xương của giao diện người dùng. Nếu bạn so sánh nó với một ngôi nhà, HTML là gạch ngói, bê tông cốt thép. Nó chứa các yếu tố như tiêu đề, đoạn văn, hình ảnh và video của các trang web. Nhấp chuột phải vào bất kỳ trang web nào chúng tôi duyệt trong Chrome. Trong cột Các yếu tố, chúng ta có thể thấy nhiều loại thẻ HTML khác nhau, là nền tảng của các trang web chúng ta duyệt.
