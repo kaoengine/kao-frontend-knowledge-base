@@ -257,3 +257,4 @@ Sử dụng <br> nếu bạn muốn ngắt dòng (một dòng mới) mà không 
  **<pre>**
 
 Văn bản bên trong phần tử <pre> được hiển thị bằng phông chữ có chiều rộng cố định và nó giữ nguyên cả dấu cách và dấu ngắt dòng:
+
