@@ -22,8 +22,8 @@ Ví dụ:
 | Thẻ bắt đầu | Nội dung element | Thẻ kết thúc |
 | ----------- | ---------------------- | --------- |
 | \<h1\> | Tiêu đề đầu tiên của tôi | </h1> |
-| \p> | Đoạn đầu tiên của tôi \. | \/ p> |
-| \br\> | không có | không có |
+| \<p> | Đoạn đầu tiên của tôi \. | \<p> |
+| \<br\> | không có | không có |
 
 
 #### Các phần tử HTML lồng nhau
