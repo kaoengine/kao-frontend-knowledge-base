@@ -21,9 +21,9 @@ ex:
 
 | Start tag | Element content      | End tag |
 |-----------|----------------------|---------|
-| \<h1\>      | My First Heading     | </h1>   |
-| \p>       | My first paragraph\. | \/p>    |
-| \br\>      | none                 | none    |
+| \<h1\>      | My First Heading     | \<h1\>   |
+| \<p\>       | My first paragraph\. | \<p\>    |
+| \<br\>      | none                 | none    |
 
 
 #### Nested HTML Elements
@@ -45,9 +45,9 @@ All HTML documents consist of nested HTML elements.
 ```
 
 #### Empty HTML Elements
-Empty elements (also called self-closing or void elements) are not container tags — that means, you can not write <hr>some content</hr> or <br>some content</br>.
+Empty elements (also called self-closing or void elements) are not container tags — that means, you can not write \<hr\>some content\</hr\> or \<br\>some content\</br\>.
 
-A typical example of an empty element, is the <br> element, which represents a line break. Some other common empty elements are <img>, <input>, <link>, <meta>, <hr>, etc...
+A typical example of an empty element, is the \<br\> element, which represents a line break. Some other common empty elements are \<img\>, \<input\>, \<link\>, \<meta\>, \<hr\>, etc...
 
 ```html
 <p>This paragraph contains <br> a line break.</p>
@@ -61,10 +61,10 @@ A typical example of an empty element, is the <br> element, which represents a l
 HTML attributes provide additional information about HTML elements.
 
 
-. All HTML elements can have attributes
-. Attributes provide additional information about elements
-. Attributes are always specified in the start tag
-. Attributes usually come in name/value pairs like: name="value"
+* All HTML elements can have attributes
+* Attributes provide additional information about elements
+* Attributes are always specified in the start tag
+* Attributes usually come in name/value pairs like: name="value"
 
 #### The href Attribute
 The \<a\> tag defines a hyperlink. The href attribute specifies the URL of the page the link goes to:
