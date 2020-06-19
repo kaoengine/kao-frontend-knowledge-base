@@ -261,7 +261,7 @@ The `element element` selector is used to select elements inside elements.
 
 The adjacent sibling combinator `(+)` separates two selectors and matches the second element only if it immediately follows the first element, and both are children of the same parent element.
 
-> Note: This is stricter than the descendant combinator, which matches all elements matched by the second selector for which there exists an ancestor element matched by the first selector, regardless of the number of "hops" up the DOM.
+> Note: This is stricter than the descendant combinator, which matches all elements matched by the second selector for which there exists an ancestor element matched by the first selector.
 
 ### Example 1:
 
