@@ -1,23 +1,22 @@
 # CSS SELECTORS
 
-### In CSS, Selectors are patterns used to select the element(s) you want to style.
+### Selectors là các mẫu được sử dụng để chọn (các) phần tử bạn muốn tạo kiểu.
 
-#### We can divide CSS selectors into five categories:
+#### Chúng ta sẽ chia ra 5 loại cho CSS Selectors :
 
-- Simple selectors (select elements based on name, id, class).
-
-- Combinator selectors (select elements based on a specific relationship between them).
-- Pseudo-class selectors (select elements based on a certain state).
-- Pseudo-elements selectors (select and style a part of an element).
-- Attribute selectors (select elements based on an attribute or attribute value).
+- Simple selectors (chọn các yếu tố dựa trên tên, id, lớp).
+- Combinator selectors (chọn các yếu tố dựa trên mối quan hệ cụ thể giữa chúng).
+- Pseudo-class selectors (chọn các yếu tố dựa trên một trạng thái nhất định).
+- Pseudo-elements selectors (chọn và định kiểu một phần của phần tử).
+- Attribute selectors (chọn các yếu tố dựa trên một thuộc tính hoặc giá trị thuộc tính).
 
 # The CSS element Selector - Simple Selectors
 
-The element selector selects HTML elements based on the element name.
+Element selector chọn các phần tử HTML dựa trên tên phần tử.
 
 ### Example:
 
-Here, all `<p>` elements on the page will be **center-aligned**, with a **red text color**:
+Tại đây, tất cả các phần tử `<p>` trên trang sẽ được **center-aligned**, với màu văn bản **red text color**:
 
 ```CSS
 p {
@@ -28,15 +27,15 @@ p {
 
 ### The CSS id Selector
 
-The id selector uses the id attribute of an HTML element to select a specific element.
+Id selector sử dụng thuộc tính id của một phần tử HTML để chọn một phần tử cụ thể.
 
-_`The id of an element is unique within a page, so the id selector is used to select one unique element!`_
+_`id của một phần tử là duy nhất trong một trang, vì vậy id được sử dụng để chọn một phần tử duy nhất!`_
 
-To select an element with a specific id, write a hash `(#)` character, followed by the id of the element.
+Để chọn một phần tử có id cụ thể, hãy viết ký tự `(#)`.
 
 ### Example:
 
-The CSS rule below will be applied to the HTML element with `id="para"`:
+Quy tắc CSS dưới đây sẽ được áp dụng cho phần tử HTML với `id="para"`:
 
 ```CSS
 #para {
@@ -47,13 +46,13 @@ The CSS rule below will be applied to the HTML element with `id="para"`:
 
 ### The CSS class Selector
 
-The class selector selects HTML elements with a specific class attribute. And there are **3 common cases** that we can use as below:
+Class selector chọn các thành phần HTML với thuộc tính lớp cụ thể. Và có **3 trường hợp phổ biến** mà chúng ta có thể sử dụng như dưới đây:
 
-1. To select elements with a specific class, write a period `(.)` character, followed by the class name.
+1. Để chọn các phần tử với một lớp cụ thể, hãy viết bằng ký tự `(.)`
 
 ### Example
 
-In this example all HTML elements with `class="center"` will be **red** and **center-aligned**:
+Trong ví dụ này tất cả các phần tử `class="center"` sẽ được màu **red** and **center-aligned** canh giữa:
 
 ```CSS
 .center {
@@ -62,11 +61,11 @@ In this example all HTML elements with `class="center"` will be **red** and **ce
 }
 ```
 
-2. You can also specify that only specific HTML elements should be affected by a class.
+2. Bạn cũng có thể chỉ định các phần tử HTML (tags) cụ thể sẽ bị ảnh hưởng bởi một lớp.
 
 ### Example
 
-In this example **_only_** `<p>` elements with `class="center"` will be `center-aligned`:
+Trong ví dụ này, chúng ta có thẻ `<p>` với `class="center"` sẽ được canh giữa `center-aligned`:
 
 ```CSS
 p.center {
@@ -75,17 +74,17 @@ p.center {
 }
 ```
 
-3. HTML elements can also refer to more than one class.
+3. Các phần tử HTML cũng có thể tham chiếu đến nhiều hơn một lớp.
 
 ### Example
 
-In this example the `<p>` element will be styled according to `class="center"` and to `class="large"`:
+Trong ví dụ này thẻ `<p>` với 2 lớp là `center` với `large`:
 
 ```CSS
 <p class="center large">This paragraph refers to two classes.</p>
 ```
 
-#### Try these below to understand clearly how it works
+#### Thử ví dụ dưới đây để xem đoạn code dưới này hoạt động như thế nào nhé
 
 ```HTML
 <!DOCTYPE html>
@@ -121,11 +120,11 @@ In this example the `<p>` element will be styled according to `class="center"` a
 
 ### The CSS Universal Selector
 
-The universal selector `(*)` selects all HTML elements on the page.
+The universal selector `(*)` chọn tất cả các thành phần trên trang HTML.
 
 ### Example
 
-The CSS rule below will affect every HTML element on the page:
+Quy tắc CSS dưới đây sẽ ảnh hưởng đến mọi thành phần trên trang HTML:
 
 ```CSS
 * {
@@ -136,9 +135,9 @@ The CSS rule below will affect every HTML element on the page:
 
 ### The CSS Grouping Selector
 
-The grouping selector selects all the HTML elements with the same style definitions.
+The grouping selector chọn tất cả các thành phần HTML có cùng chung kiểu styles.
 
-Look at the following CSS code (the `<h1>`, `<h2>`, and `<p>` elements have the same style definitions):
+Quan sát đoạn CSS code bên dưới (thẻ `<h1>`, `<h2>`, và `<p>` có chung Attributes `text-align`, `color` và chung giá trị là `center` và `red` ):
 
 ```CSS
 h1 {
@@ -157,9 +156,7 @@ p {
 }
 ```
 
-It will be better to group the selectors, to minimize the code.
-
-To group selectors, separate each selector with a comma.
+Sẽ tốt hơn để nhóm các thẻ lại. Chúng ta chú ý _Syntax_ kỹ thuật này: tách từng bộ chọn bằng dấu phẩy
 
 ```CSS
 h1, h2, p {
@@ -172,10 +169,10 @@ h1, h2, p {
 
 ## 1. Descendant:
 
-Represented by a single space `( )` character — combines two selectors such that elements matched by the second selector are selected if they have an ancestor (parent, parent's parent, parent's parent's parent, etc) element matching the first selector. Selectors that utilize a descendant combinator are called descendant selectors.
+Được biểu thị bằng một ký tự `()` một dấu cách - kết hợp hai selectors sao cho các phần tử khớp với selector thứ hai được chọn nếu chúng có phần tử parent (parent's parent, parent's parent's parent,vv...) khớp với Selector thứ nhất. Selector sử dụng bộ kết hợp được gọi là `descendant selectors`.
 
-In Summary:
-The `element element` selector is used to select elements inside elements.
+Cụ thể là:
+`element element` selector được sử dụng để chọn các phần tử bên trong các phần tử.
 
 ### Example 1: Based on HTML Tag
 
@@ -223,7 +220,7 @@ The `element element` selector is used to select elements inside elements.
 </html>
 ```
 
-### Example 2: Based on ID selector `id="main-content"` and HTML tag `<p>`
+### Example 2: Based on ID selector `id="main-content"` và HTML tag `<p>`
 
 ```html
 <!DOCTYPE html>
@@ -259,13 +256,13 @@ The `element element` selector is used to select elements inside elements.
 
 ## 2. Adjacent sibling:
 
-The adjacent sibling combinator `(+)` separates two selectors and matches the second element only if it immediately follows the first element, and both are children of the same parent element.
+Adjacent sibling combinator `(+)` chỉ khớp với phần tử thứ hai nếu nó đứng ngay sau phần tử thứ nhất và cả hai đều là children của cùng một phần tử parent.
 
-> Note: This is stricter than the descendant combinator, which matches all elements matched by the second selector for which there exists an ancestor element matched by the first selector.
+> Điều này chặt chẽ hơn so với `descendant combinator`
 
 ### Example 1:
 
-Select and style every `<p>` element that are placed immediately after `<div>` elements:
+Tạo style cho phần tử `<p>` được đặt ngay sau các phần tử `<div>`:
 
 ```html
 <!DOCTYPE html>
@@ -308,13 +305,13 @@ li:first-of-type + li {
 </ul>
 ```
 
-> Note: As example above we can see `'li:first-of-type'` the meaning is the first `<li>` tag is chosen and it targets the next sibling element which is the second `<li>2</li>`.
+> Lưu ý: Như ví dụ ở trên, chúng ta có thể thấy `'li:first-of-type'` nghĩa là thẻ `<li>` đầu tiên được chọn và nó nhắm mục tiêu phần tử anh chị tiếp theo là `<li>2</li>`.
 
-> However, if we **_remove_** the `'first-of-type'`. It targets both `<li>2</li>` and `<li>3</li>`
+> Tuy nhiên, nếu chúng ta **_xóa_** `'first-of-type'`. Nó nhắm mục tiêu cả `<li>2</li>` và `<li>3</li>`
 
 ## 3. Child
 
-The child combinator `(>)` is placed between two CSS selectors. It matches only those elements matched by the second selector that are the children of elements matched by the first
+The child combinator `(>)`. Đầu tiên, nó tìm kiếm tất cả các phần tử phù hợp với Selector 1 và nhận được kết quả 1, sau đó nó tìm kiếm các phần tử là con trực tiếp của các phần tử trong kết quả 1 và phù hợp với Selector 2 và nhận được kết quả 2. Kết quả 2 chính là thứ được trông đợi.
 
 ### Example 1:
 
@@ -338,7 +335,7 @@ div > span {
 
 ### Example 2:
 
-> Try this example below - it is similar to the example of Descendant - but I've already added 1 one more tag`<section>`
+> Thử ví dụ dưới đây , chúng ta sẽ thêm 1 thẻ `<section>`
 
 ```html
 <!DOCTYPE html>
@@ -379,7 +376,7 @@ div > span {
 
 ## 4. General sibling
 
-The general sibling combinator `(~)` separates two selectors and matches the second element only if it follows the first element (though not necessarily immediately), and both are children of the same parent element.
+The general sibling combinator `(~)` chỉ khớp với phần tử thứ hai nếu nó tuân theo phần tử thứ nhất và cả hai đều là con của cùng một phần tử cha.
 
 ### Example 1:
 
@@ -456,25 +453,25 @@ elements:pseudo-class {
 
 ## I. Pseudo-class selectors for link and user states
 
-A pseudo-class is used to define a special state of an element.
+A pseudo-class được sử dụng để xác định trạng thái đặc biệt của một phần tử.
 
-For example, it can be used to:
+Ví dụ, nó có thể được sử dụng để:
 
-- Style an element when a user mouses over it.
-- Style visited and unvisited links differently.
-- Style an element when it gets focus.
+- Style một yếu tố khi người dùng di chuyển qua nó.
+- Style link truy cập và link chưa truy cập.
+- Style một yếu tố khi nó được focus.
 
-There are some basic usuages for this section:
+Một vài thẻ đơn giản như sau:
 
-- The `:link` CSS pseudo-class represents an element that has not yet been visited. It matches every unvisited `<a>`, `<area>`, or `<link>` element that has an href attribute.
+- `:link` đại diện cho một phần tử chưa được truy cập. Nó phù hợp với mọi phần tử `<a>`, `<area>` hoặc `<link>` có thuộc tính href.
 
-- The `:active` CSS pseudo-class represents an element (such as a button) that is being activated by the user. When using a mouse, "activation" typically starts when the user presses down the primary mouse button.
+- `:active` đại diện cho một phần tử (chẳng hạn như button) được user kích hoạt. chúng ta sẽ thấy khi chúng ta nhấn chuột.
 
-- The `:visited` CSS pseudo-class represents links that the user has already visited. For privacy reasons, the styles that can be modified using this selector are very limited.
+- `:visited`: đã truy cập đại diện cho các liên kết mà người dùng đã truy cập. Vì lý do riêng tư, kiểu này hạn chế được sử dụng
 
-- The `:focus` CSS pseudo-class represents an element (such as a form input) that has received focus. It is generally triggered when the user clicks or taps on an element or selects it with the keyboard's "tab" key.
+- `:focus` đại diện cho một phần tử (thẻ `<input/>`). Nó thường được kích hoạt khi người dùng nhấp hoặc chạm vào một yếu tố hoặc chọn nó bằng phím "tab" của bàn phím.
 
-- The `:hover` CSS pseudo-class matches when the user interacts with an element with a pointing device, but does not necessarily activate it. It is generally triggered when the user hovers over an element with the cursor (mouse pointer).
+- `:hover` phù hợp khi người dùng tương tác với một phần tử với thiết bị trỏ, nhưng không nhất thiết phải kích hoạt nó.
 
 ```html
 <!DOCTYPE html>
@@ -709,7 +706,7 @@ p:nth-last-of-type(2) {
 
 # Pseudo-element selectors
 
-1. The `::first-letter` CSS pseudo-element applies styles to the first letter of the first line of a block-level element, but only when not preceded by other content (such as images or inline tables).
+1. The `::first-letter` CSS pseudo-element Chọn và style chữ cái đầu tiên của mọi phần tử.
 
 ```css
 p::first-letter {
@@ -726,7 +723,7 @@ p::first-letter {
 <p>My best friend is Mickey.</p>
 ```
 
-2. The `::first-line` CSS pseudo-element applies styles to the first line of a block-level element. Note that the length of the first line depends on many factors, including the width of the element, the width of the document, and the font size of the text.
+2. The `::first-line` CSS pseudo-element Chọn và style dòng đầu tiên của mọi phần tử. chú ý Block-level Element.
 
 ```CSS
 p::first-line {
@@ -752,9 +749,9 @@ p::first-line {
 </p>
 ```
 
-3. In CSS, `::before` creates a pseudo-element that is the **first child** of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default.
+3. `::before` Chèn một số văn bản trước nội dung của từng phần tử
 
-4. Oppsotie to `::after` creates a pseudo-element that is the **last child** of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default.
+4. `::after` Chèn một số văn bản sau nội dung của từng phần tử
 
 ```CSS
 q::before {
@@ -784,9 +781,7 @@ q::after {
 | [attr~=value]  | p[class~="special"]           | Matches elements with an attr attribute whose value is exactly value, or contains value in its (space separated) list of values. |
 | [attr\|=value] | div[lang\|="zh"]              | Matches elements with an attr attribute whose value is exactly value or begins with value immediately followed by a hyphen.      |
 
-> I know it is super confused, but We will guide you through these complicated stuffs.
-
-> How about we check this example and slowly get it slowly below:
+> Giờ chúng ta sẽ xem ví dụ dưới đây:
 
 - `li[class]` we can match any selector with a class attribute. This matches all of the list items except the first one.
 
@@ -1051,5 +1046,3 @@ Note: The `:in-range` and `:out-of-range` selector only works for `input` elemen
   </body>
 </html>
 ```
-
-> In Conclusion, We understand this lesson for all CSS Selectors are hard to follow , but there is no easy way to achieve its foundation, Try practicing more! the good result will come! GOOD LUCK TO ALL!
