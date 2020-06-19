@@ -326,6 +326,8 @@ font family của một văn bản được đặt với  font-family property.
 
 Bắt đầu với phông chữ bạn muốn và kết thúc bằng một họ chung, để cho phép trình duyệt chọn một phông chữ tương tự trong họ chung, nếu không có phông chữ nào khác.
 
+for mac-os: -apple-system, BlinkMacSystemFont
+
 >Lưu ý: Nếu tên của một font-family có nhiều hơn một từ, thì nó phải nằm trong dấu ngoặc kép, như: "Times New Roman".
 
 #### Font Style
@@ -428,6 +430,32 @@ body {
 </body>
 </html>
 https://fonts.google.com/
+```
+
+#### navigation bar
+
+```HTML
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+
+<h2>Navigation Menu</h2>
+<p>In this example, we use CSS to style the list horizontally, to create a navigation menu:</p>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+</body>
+</html>
+
 ```
 
 #### Pseudo-classes
