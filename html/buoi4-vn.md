@@ -326,6 +326,8 @@ font family của một văn bản được đặt với  font-family property.
 
 Bắt đầu với phông chữ bạn muốn và kết thúc bằng một họ chung, để cho phép trình duyệt chọn một phông chữ tương tự trong họ chung, nếu không có phông chữ nào khác.
 
+for mac-os: -apple-system, BlinkMacSystemFont
+
 >Lưu ý: Nếu tên của một font-family có nhiều hơn một từ, thì nó phải nằm trong dấu ngoặc kép, như: "Times New Roman".
 
 #### Font Style
@@ -333,19 +335,19 @@ Thuộc tính kiểu phông chữ chủ yếu được sử dụng để chỉ �
 
 This property has 2 values:
 
-normal - Văn bản được hiển thị bình thường
-italic - Văn bản được in nghiêng
+* normal - Văn bản được hiển thị bình thường
+* italic - Văn bản được in nghiêng
 
 #### Font Weight
 Thuộc tính trọng lượng phông chữ chỉ định trọng lượng của phông chữ:
 
 ```css
 p {
-  font-weight: bình thường;
+  font-weight: normal;
 }
 
 p.thick {
-  font-weight: in đậm;
+  font-weight: bold;
 }
 ```
 
@@ -369,15 +371,15 @@ Cho phép người dùng thay đổi kích thước văn bản trong trình duy�
 
 ```css
 h1 {
-  cỡ chữ: 40px;
+  font-size: 40px;
 }
 
 h2 {
-  cỡ chữ: 30px;
+  font-size: 30px;
 }
 
 p {
-  cỡ chữ: 14px;
+  font-size: 14px;
 ```
 
 **Đặt cỡ chữ với Em**
@@ -391,15 +393,15 @@ Kích thước có thể được tính từ pixel đến em bằng công thức
 
 ```css
 h1 {
-  cỡ chữ: 2,5em; / * 40px / 16 = 2.5em * /
+  font-size: 2,5em; / * 40px / 16 = 2.5em * /
 }
 
 h2 {
-  cỡ chữ: 1.875em; / * 30px / 16 = 1.875em * /
+  font-size: 1.875em; / * 30px / 16 = 1.875em * /
 }
 
 p {
-  cỡ chữ: 0.875em; / * 14px / 16 = 0.875em * /
+  font-size: 0.875em; / * 14px / 16 = 0.875em * /
 }
 ```
 
@@ -428,6 +430,32 @@ body {
 </body>
 </html>
 https://fonts.google.com/
+```
+
+#### navigation bar
+
+```HTML
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+
+<h2>Navigation Menu</h2>
+<p>In this example, we use CSS to style the list horizontally, to create a navigation menu:</p>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+</body>
+</html>
+
 ```
 
 #### Pseudo-classes
