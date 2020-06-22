@@ -85,15 +85,15 @@ table, th, td {
 
 Để xác định kiểu đặc biệt cho một bảng cụ thể, hãy thêm thuộc tính id vào bảng:
 
-`` `css
-#tId tr: nth-child (chẵn) {
-  màu nền: #eee;
+```css
+#tId tr:nth-child(even) {
+  background-color: #eee;
 }
-#tId tr: nth-child (lẻ) {
-  màu nền: #fff;
+#tId tr:nth-child(odd) {
+  background-color: #fff;
 }
-#tId {
-  màu trắng;
-  màu nền: đen;
+#tId th {
+  color: white;
+  background-color: black;
 }
-`` `
+```
