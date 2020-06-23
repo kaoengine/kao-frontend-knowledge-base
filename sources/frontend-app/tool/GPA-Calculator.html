@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        .calc {
+            margin-top: 20px;
+        }
+
+        .calc button img {
+            filter: invert(1);
+        }
+
+        #tbl tbody tr td:nth-child(2) {
+            width: 100px;
+        }
+
+        #tbl tbody tr td:nth-child(3) {
+            width: 100px;
+        }
+
+        .dtable {
+            text-align: center
+        }
+
+        .dtable td {
+            width: 100px
+        }
+
+        #tbl tbody tr td:first-child input {
+            width: 100%;
+        }
+
+        #gpacircle,
+        #finalcircle {
+            margin: 0 auto;
+            float: none;
+        }
+
+        @media all and (max-width: 320px) {
+            .calc button img {
+                display: none;
+            }
+        }
+
+        @media all and (max-width: 576px) {
+            .calc {
+                padding: 10px;
+                width: 100%;
+            }
+        }
+
+        @media all and (min-width: 577px) {
+            .calc {
+                padding: 15px;
+                max-width: 450px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="lcol">
+
+        <div id="doc" class="d-flex p-3 bg-secondary text-white justify-content-center ">
+
+            <div class="p-2 bg-info text-warning">
+                <h1 class="text-warning text-center">
+                    GPA Calculator</h1>
+                <form id="calcform" name="calcform" class="calc" autocomplete="off">
+                    <table id="tbl">
+                        <tr>
+                            <td>Class</td>
+                            <td>Grade</td>
+                            <td>Credits /<br>Hours</td>
+                        </tr>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div id="cumdiv" class="form-group">
+                        <label for="gpa">Previous cumulative GPA/credits (optional)</label>
+                        <div class="row">
+                            <div class="col">
+
+                                <input type="number" id="cgpa" min="0" step="any" placeholder="cumulative gpa"
+                                    class="form-control">
+                            </div>
+                            <div class="col">
+
+                                <input type="number" id="chours" min="0" step="any" placeholder="credits"
+                                    class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="calcbtn" title="Calculate" class="btn btn-primary"> Calculate</button>
+                        <button type="reset" id="resetbtn" title="Reset" class="btn btn-danger"> Reset</button>
+                        <button type="button" id="addrow" title="Add row" class="btn btn-warning"> Row</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="gpa">GPA</label>
+                        <input type="text" id="gpa" readonly class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div id="gpacircle" class="red small mb-3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="total">Total credits/hours</label>
+                        <input type="number" step="any" id="total" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="area">GPA calculation</label>
+                        <input rows="3" id="area" class="form-control" readonly>
+                    </div>
+                </form>
+            </div>
+            <div class="p-2 bg-warning text-info">
+                <h1 class="text-info text-center">
+                    Final GPA Calculator</h1>
+                <form id="calcform2" class="calc" autocomplete="off">
+                    <div class="form-group">
+                        <label for="curgpa">Current GPA</label>
+                        <input type="number" min="0" step="any" id="curgpa" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="tgpa">Target GPA</label>
+                        <input type="number" min="0" step="any" id="tgpa" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="curhours">Current credits/hours</label>
+                        <input type="number" min="0" step="any" id="curhours" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="ahours">Additional credits/hours</label>
+                        <input type="number" min="0" step="any" id="ahours" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="calcbtn2" title="Calculate" class="btn btn-primary">
+                            Calculate</button>
+                        <button type="reset" id="resetbtn2" title="Reset" class="btn btn-danger"> Reset</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="fgpa">Additional GPA/grade needed to get target GPA</label>
+                        <div class="input-group">
+                            <input type="text" id="fgpa" class="form-control mr-2" readonly>
+                            <input type="text" id="flet" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="finalcircle" class="red small mb-3">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    var irow = 0;
+    $(document).ready(function () {
+        $("#calcbtn").click(Calc);
+        $("#resetbtn").click(OnReset);
+        $("#addrow").click(AddRow);
+        $("#calcbtn2").click(Calc2);
+        for (i = 0; i < 6; i++)
+            AddRow();
+    });
+    function OnReset() {
+        $("#gpacircle").hide();
+    }
+    function Calc() {
+        var glook = [-1, 4.00, 3.67, 3.33, 3.00, 2.67, 2.33, 2.00, 1.67, 1.33, 1.00, 0.67, 0, -1, -1];
+        var gpa = 0;
+        var sum = 0;
+        var txt1 = "";
+        var txt2 = "";
+        for (var i = 1; i <= irow + 1; i++) {
+            hours = $("#tbl > tbody > tr:nth-child(" + i + ") > td:nth-child(3) > input").val();
+            hours = parseFloat(hours);
+            igrade = $("#tbl > tbody > tr:nth-child(" + i + ") > td:nth-child(2) > select").prop("selectedIndex");
+            grade = glook[igrade];
+            if (hours > 0 && grade >= 0) {
+                gpa += hours * grade;
+                sum += hours;
+                txt1 += hours + "\u00D7" + grade + "+";
+                txt2 += hours + "+";
+            }
+        }
+        cgpa = $("#cgpa").val();
+        chours = $("#chours").val();
+        cgpa = parseFloat(cgpa);
+        chours = parseFloat(chours);
+        if (cgpa >= 0 && chours > 0) {
+            gpa += chours * cgpa;
+            sum += chours;
+            txt1 += chours + "\u00D7" + cgpa + "+";
+            txt2 += chours + "+";
+        }
+        gpa /= sum;
+        gpa = gpa.toFixed(2);
+        txt1 = txt1.slice(0, -1);
+        txt2 = txt2.slice(0, -1);
+        var txt = "(" + txt1 + ") / (" + txt2 + ") = " + gpa;
+        $("#gpa").val(gpa);
+        $("#total").val(sum);
+        $("#area").val(txt);
+        var percent = 25 * gpa;
+        if (percent > 100) percent = 100;
+        $("#gpacircle").percircle({ percent: percent, text: gpa });
+        $("#gpacircle").show();
+    }
+    function AddRow() {
+        $('#tbl > tbody > tr').eq(irow++).after(`
+            < tr >\
+            <td><input type='text' name='class[]' class='form-control' placeholder='class "+irow+"'></td>\
+         <td><select name='grade[]' class='form-control'>\
+            <option selected>--</option>\
+            <option>A</option>\
+            <option>A-</option>\
+            <option>B+</option>\
+            <option>B</option>\
+            <option>B-</option>\
+            <option>C+</option>\
+            <option>C</option>\
+            <option>C-</option>\
+            <option>D+</option>\
+            <option>D</option>\
+            <option>D-</option>\
+            <option>F</option>\
+            <option>P</option>\
+            <option>NP</option>\
+         </select></td>\
+         <td><input type='number' min='0' step='any' name='hours[]' class='form-control'></td>\
+      </tr>
+`);
+    }
+    function GetLetterFromGPA(gpa) {
+        var letter = "";
+        var lettertbl = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'];
+        var gpatbl = [4.33, 4.00, 3.67, 3.33, 3.00, 2.67, 2.33, 2.00, 1.67, 1.33, 1.00, 0.67, 0];
+        for (var i = 0; i < gpatbl.length; i++)
+            if (gpa >= gpatbl[i]) {
+                letter = lettertbl[i];
+                break;
+            }
+        return letter;
+    }
+    function Calc2() {
+        var cgpa = parseFloat($("#curgpa").val());
+        var tgpa = parseFloat($("#tgpa").val());
+        var chours = parseFloat($("#curhours").val());
+        var ahours = parseFloat($("#ahours").val());
+        var h = chours + ahours;
+        //tgpa=(cgpa*chours+fgpa*ahours)/h
+        var fgpa = (h * tgpa - chours * cgpa) / ahours;
+        var flet = GetLetterFromGPA(fgpa);
+        $("#fgpa").val(fgpa.toFixed(2));
+        $("#flet").val(flet);
+        var percent = 25 * fgpa;
+        if (percent > 100) percent = 100;
+        $("#finalcircle").percircle({ percent: percent, text: flet });
+        $("#finalcircle").show();
+    }
+</script>
+
+
+</html>
