@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        #calcform {
+            padding: 15px;
+            background: #f9593d;
+            border: 1px solid #eee;
+            border-radius: 7px;
+        }
+
+        .btn i {
+            vertical-align: middle;
+        }
+
+        #play {
+            width: 80px;
+        }
+
+        #area::-moz-selection {
+            background: #f9593d;
+            color: #000;
+        }
+
+        #area::selection {
+            background: #fcfc00;
+            color: #000;
+            border-style: none;
+        }
+
+        .btn-light {
+            background: #f9593d;
+            border-color: unset;
+            border-color: #eee8d5;
+        }
+
+        .btn-light:hover {
+            background: #f9593d;
+            border-color: unset;
+            border-color: #eee8d5;
+        }
+
+        #topbar,
+        #bar,
+        #playslide {
+            width: 100%;
+            background: #6c757d;
+            background: #f9593d;
+        }
+
+        #playslide {
+            padding: 0px 1px 15px 1px;
+            margin-top: 0px;
+        }
+
+        #bar {
+            margin-top: -5px;
+        }
+
+        #volbtn:hover~#volslide {
+            display: block;
+            width: 80px;
+        }
+
+        #volslide {
+            width: 80px;
+            padding: 20px 5px !important;
+            display: none;
+            -webkit-transition: width 2s;
+            transition: width 2s;
+        }
+
+        #volslide:hover {
+            display: block;
+        }
+
+        #volslide::-webkit-slider-thumb {
+            background: black;
+        }
+
+        #voiceselect {
+            max-width: 608px;
+        }
+
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100vh;
+        }
+
+        .custom-range::-webkit-slider-thumb {
+            background: red;
+            z-index: 1000;
+            position: relative
+        }
+
+        .custom-range::-webkit-slider-thumb:focus {
+            color: red !important;
+        }
+
+        .custom-range::-moz-range-thumb {
+            background: red;
+        }
+
+        .custom-range::-ms-thumb {
+            background: red;
+        }
+
+        .custom-range::-webkit-slider-thumb:active {
+            background-color: red
+        }
+
+        .custom-range:focus::-webkit-slider-thumb {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 .1rem #fff
+        }
+
+        .custom-range:focus::-moz-range-thumb {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 .1rem #fff
+        }
+
+        .custom-range:focus::-ms-thumb {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 .1rem #fff
+        }
+
+        #area #area:hover,
+        #area:active,
+        #area:focus {
+            border: 1px solid #ced4da;
+            outline: 0px !important;
+            -webkit-appearance: none;
+            box-shadow: none !important;
+        }
+
+        @media all and (max-width: 600px) {}
+
+        @media all and (min-width: 601px) {}
+    </style>
+
+</head>
+
+<body>
+
+    <div id="lcol" class="d-flex justify-content-center">
+
+        <div id="doc">
+            <!-- #BeginEditable "doctext" -->
+            <h1 class="text-center text-dark">
+                Text to Speech Teller</h1>
+            <form id="calcform">
+                <div id="topbar">
+                    <div class="btn-group">
+                        <button type="button" onclick="SpeechForm.open()" title="Open" aria-label="Open File"
+                            class="btn btn-light"><i class="material-icons">folder_open</i> Open File</button>
+                        <button type="button" onclick="SpeechForm.copy()" title="Copy" class="btn btn-light"><i
+                                class="material-icons">content_copy</i></button>
+                        <button type="button" onclick="SpeechForm.selectall()" title="Select All"
+                            class="btn btn-light"><i class="material-icons">select_all</i></button>
+                        <button type="button" onclick="SpeechForm.zoomin()" title="Zoom In" class="btn btn-light"><i
+                                class="material-icons">zoom_in</i></button>
+                        <button type="button" onclick="SpeechForm.zoomout()" title="Zoom Out" class="btn btn-light"><i
+                                class="material-icons">zoom_out</i></button>
+                        <input type="file" id="fileElem" name="fileElem[]" multiple
+                            style="visibility:hidden; width:30px" onchange="SpeechForm.onfile()">
+                    </div>
+                </div>
+                <input rows="10" id="area" class="form-control bg-dark text-light" value=" How Do You Make A Text to Speech Teller Using JavaScript 
+            1st Step
+            First you open your HTML Editor like-Notepad++,Subline Text,Brackets, etc.
+            Then start program use Html,Css,Javascript ." autofocus>
+
+
+                <input type="range" min="0" value="0" class="custom-range" id="playslide">
+                <div id="bar">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" onclick="SpeechForm.playbtn()" class="btn btn-light" id="play"
+                            title="Play" disabled><i class="material-icons">play_arrow</i></button>
+                        <button type="button" onclick="SpeechForm.playprev()" class="btn btn-light" id="prev"
+                            title="Prev" disabled><i class="material-icons">skip_previous</i></button>
+                        <button type="button" onclick="SpeechForm.playnext()" class="btn btn-light" id="next"
+                            title="Next" disabled><i class="material-icons">skip_next</i></button>
+                        <button type="button" onclick="SpeechForm.stopbtn()" class="btn btn-light" title="Stop"><i
+                                class="material-icons">stop</i></button>
+                        <button type="button" onclick="" class="btn btn-light" id="volbtn" title="Volume"><i
+                                class="material-icons">volume_up</i></button>
+                        <input type="range" min="0" max="100" step="any" id="volslide" class="custom-range">
+
+                        <button type="button" id="full" title="Fullscreen" onclick="SpeechForm.fullscreen()"
+                            class="btn btn-light"><i class="material-icons">fullscreen</i></button>
+                    </div>
+                </div>
+                <select id="voiceselect" onchange="SpeechForm.voicechange()" class="form-control mt-3"></select>
+            </form>
+        </div>
+    </div>
+
+    <div class=>
+        <h1>JS code</h1>
+        <script src="https://gist.github.com/trkhanh/56bf55ebe10909cde953132064e00f3b.js"></script>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        "use strict";
+        // Application variables
+        var area, txt;
+        var fontsize = 18;
+        var s = { INIT: 1, PLAY: 2, PAUSED: 3, END: 4 };
+        var iplay, previplay, playstate = s.INIT;
+        var start, end;
+        var msg = null;
+        var imsg;
+        var voices = [];
+        var voiceindex = 3;
+        var volume;
+        var playslidemax;
+        var firstinit = true;
+        $(document).ready(function () {
+            try { eval('"use strict"; class foo {}'); } catch (e) { alert("Speech synthesis is not supported in this browser!\nPlease use Chrome browser."); }
+            SpeechSynth.init();
+            SpeechForm.init();
+        });
+
+        class SpeechForm {
+            static init() {
+                playstate = s.INIT;
+                $("#play").prop("disabled", false);
+                $("#prev").prop("disabled", false);
+                $("#next").prop("disabled", false);
+                txt = $("#area").val();
+                txt = txt.replace(/\t/g, "");
+                $("#area").val(txt);
+                $("#bar").mouseleave(function () { SpeechForm.volhide(); });
+                $("#volbtn").hover(function () { SpeechForm.volshow(); });
+                $(window).on("unload blur", function () { SpeechForm.localSave(); });
+                $("#area").on("paste", function () { setTimeout(function () { SpeechForm.init(); }, 500); });
+                $("#playslide").on("change input", function () { SpeechForm.onSlideChange(); });
+                $("#volslide").on("change input", function () { SpeechForm.onVolSlideChange(); });
+                SpeechForm.populateVoiceList();
+                if (firstinit == true) {
+                    firstinit = false;
+                    $("#volslide").val(100);
+                    SpeechForm.localLoad();
+                }
+                SpeechForm.initText();
+                SpeechForm.setslider(0);
+                SpeechForm.initslider();
+            }
+            static localLoad() {
+                if (typeof (Storage) !== "undefined") {
+                    var txt = localStorage.getItem("texttospeech_text");
+                    if (txt != null && txt != "")
+                        $("#area").val(txt);
+                }
+            }
+            static localSave() {
+                if (typeof (Storage) !== "undefined") {
+                    var txt = $("#area").val();
+                    localStorage.setItem("texttospeech_text", txt);
+                }
+            }
+            static onPlaySlideChange() {
+                var v = $("#playslide").val();
+            }
+            static onVolSlideChange() {
+                var v = $("#volslide").val() / 100.0;
+                volume = v;
+            }
+            static populateVoiceList() {
+                var voices = SpeechSynth.getvoices();
+                if (voices == null) return;
+                if (voices.length > 21) voices.length = 21;
+                for (var i = 0; i < voices.length; i++) {
+                    var textContent = voices[i].name + ' (' + voices[i].lang + ')';
+                    if (textContent.substring(0, 6) == "Google")
+                        textContent = textContent.substring(7, textContent.length);
+                    if (textContent.substring(0, 9) == "Microsoft")
+                        textContent = textContent.substring(10, textContent.length);
+                    $("#voiceselect").append("<option>" + textContent + "</option>");
+                }
+                var i = 1;
+                if (voices.length >= 4) i = 4;
+                $("#voiceselect option:nth-child(" + i + ")").prop("selected", true);
+                SpeechSynth.setvoice(i - 1);
+            }
+            static initText() {
+                txt = $("#area").val();
+                txt = txt.replace(/[.?!:,\r\n\]]/g, ".");
+                txt = txt.replace(/\.\.+/g, ".");
+                txt = txt.replace(/\.\s*/g, "|");
+                txt = txt.split("|");
+                txt = txt.filter(n => n);
+                playslidemax = txt.length - 1;
+            }
+            static initslider() {
+
+                $("#playslide").prop("max", playslidemax);
+            }
+            static getslider() {
+                return $("#playslide").val();
+            }
+            static setslider(v) {
+                $("#playslide").val(v);
+            }
+            static volshow() {
+                $("#volslide").css("display", "block");
+            }
+            static volhide() {
+                $("#volslide").css("display", "none");
+            }
+
+            static fullscreen() {
+                if ($("#full i").html() == "fullscreen") {
+                    $("#full i").html("fullscreen_exit");
+                    $("#ban-ad").css("display", "none");
+                    $("#calcform").addClass("fullscreen");
+                    document.body.style.overflow = 'hidden';
+                }
+                else {
+                    $("#full i").html("fullscreen");
+                    $("#ban-ad").css("display", "block");
+                    $("#calcform").removeClass("fullscreen");
+                    document.body.style.overflow = 'visible';
+                }
+            }
+            static open() {
+                $("#fileElem").click();
+            }
+            static onfile() {
+                var file = document.getElementById("fileElem").files[0];
+                document.getElementById("fileElem").value = "";
+                SpeechForm.fileLoad(file);
+            }
+            static fileLoad(file) {
+
+                var reader = new FileReader();
+                reader.onloadend = function (e) {
+                    if (e.target.readyState == FileReader.DONE) {
+                        var t = e.target.result;
+
+                        $("#area").val(t);
+                        $("#area").focus();
+                        OnCount();
+                        SpeechForm.init();
+                    }
+                };
+                reader.readAsText(file, "UTF-8");
+
+            }
+            static copy() {
+                $("#area").select();
+                document.execCommand('copy');
+            }
+            static zoomout() {
+                fontsize /= 1.1;
+                var size = Math.round(fontsize) + "px";
+                $("#area").css("font-size", size);
+            }
+            static zoomin() {
+                fontsize *= 1.1;
+                var size = Math.round(fontsize) + "px";
+                $("#area").css("font-size", size);
+            }
+            static voicechange() {
+                var i = $("#voiceselect")[0].selectedIndex;
+                SpeechSynth.setvoice(i);
+            }
+
+            static selectall() {
+                $("#area").focus();
+                $("#area").select();
+            }
+            static resetform() {
+                SpeechSynth.stop();
+                $("#area").val("");
+                $("#area").focus();
+            }
+            static stopbtn() {
+                SpeechForm.setslider(0);
+                SpeechSynth.stop();
+                if (playstate == s.INIT) {
+                    playstate = s.END;
+                    SpeechForm.playmng();
+                }
+                else
+                    playstate = s.END;
+            }
+            static setselect() {
+                $("#area")[0].selectionStart = start;
+                $("#area")[0].selectionEnd = start;
+                $("#area").blur();
+                $("#area").focus();
+                $("#area")[0].selectionStart = start;
+                $("#area")[0].selectionEnd = end;
+                $("#area").focus();
+            }
+            static playbtn() {
+
+                if (playstate == s.END) playstate = s.INIT;
+
+                if (playstate == s.INIT) {
+                    $("#play").html("<i class='material-icons'>pause</i>");
+                    SpeechForm.playmng();
+                }
+                else if (playstate == s.PLAY) {
+                    $("#play").html("<i class='material-icons'>play_arrow</i>");
+                    playstate = s.PAUSED;
+                    SpeechSynth.stop();
+                    SpeechForm.setselect();
+                }
+                else if (playstate == s.PAUSED) {
+                    $("#play").html("<i class='material-icons'>pause</i>");
+                    playstate = s.PLAY;
+                    iplay--;
+                    SpeechForm.playmng();
+                    SpeechForm.setselect();
+                }
+            }
+            static playnext() {
+                if (playstate == s.PLAY) {
+                    SpeechSynth.stop();
+
+                    if (iplay == txt.length)
+                        playstate = s.END;
+                    previplay = -1;
+
+                }
+            }
+            static playprev() {
+                if (playstate == s.PLAY) {
+                    if (iplay < 1) return;
+                    SpeechSynth.stop();
+                    if (iplay == 1)
+                        iplay = 0;
+                    else
+                        iplay -= 2;
+                    if (iplay < 0)
+                        iplay = 0;
+
+                    previplay = -1;
+
+                }
+            }
+            static playmng() {
+                switch (playstate) {
+                    case s.INIT:
+                        SpeechSynth.stop();
+                        area = $("#area").val();
+                        if (area == "") {
+                            $("#play").html("<i class='material-icons'>play_arrow</i>");
+                            return;
+                        }
+
+                        if (txt == null || txt.length == 0) {
+                            $("#play").html("<i class='material-icons'>play_arrow</i>");
+                            return;
+                        }
+                        iplay = start = end = 0;
+                        previplay = -1;
+                        playstate = s.PLAY;
+                    case s.PLAY:
+                        //console.log(iplay);
+                        var t = txt[iplay].replace(/[\"\'\’\‘]/gi, "");
+                        if (t != "") {
+                            SpeechSynth.play(t);
+                            if (previplay != iplay) {
+                                previplay = iplay;
+                                //start = area.indexOf(txt[iplay],end);
+                                start = area.indexOf(txt[iplay], 0);
+                                end = start + txt[iplay].length;
+                            }
+                            SpeechForm.setselect();
+                            SpeechForm.setslider(iplay);
+                        }
+                        if (++iplay == txt.length)
+                            playstate = s.END;
+                        break;
+                    case s.PAUSED:
+
+                        break;
+                    case s.END:
+                        $("#play").html("<i class='material-icons'>play_arrow</i>");
+                        $("#area").blur();
+                        playstate = s.INIT;
+                        break;
+                    default:
+                        console.log("Bad playstate!!!");
+                }
+            }
+        }
+
+        class SpeechSynth {
+            static init() {
+                if (!('speechSynthesis' in window)) {
+                    alert("Speech synthesis is not supported in this browser!\nPlease use Chrome browser.");
+                    return;
+                }
+                SpeechSynth.stop();
+                voices = window.speechSynthesis.getVoices();
+
+                volume = 1.0;
+
+                if (speechSynthesis.onvoiceschanged !== undefined) {
+                    speechSynthesis.onvoiceschanged = function () {
+                        //console.log("onvoiceschanged()");
+                        if (voices.length > 0) return;
+                        voices = window.speechSynthesis.getVoices()
+                        SpeechForm.populateVoiceList();
+                    };
+                }
+            }
+            static getvoices() {
+                return voices;
+            }
+            static setvoice(i) {
+                voiceindex = i;
+            }
+            //static setvolume(v) {
+            //   msg.volume = v; //0..1
+            //   console.log(v);
+            //}
+            static ispending() {
+                return window.speechSynthesis.pending;
+            }
+            static stop() {
+                window.speechSynthesis.cancel();
+            }
+            static pause() {
+                //if( window.speechSynthesis.speaking )
+                window.speechSynthesis.pause();
+            }
+            static resume() {
+                window.speechSynthesis.resume();
+            }
+            static play(s) {
+                //voices = window.speechSynthesis.getVoices();
+                if (voices.length == 0) alert("No voices detected. Please restart the browser and try again.");
+                msg = new SpeechSynthesisUtterance();
+                msg.onend = function (e) {
+                    //console.log('Finished in ' + e.elapsedTime + ' seconds.');
+                    SpeechForm.playmng();
+                };
+                msg.onerror = function (e) {
+                    console.log('Error in ' + e.elapsedTime + ' seconds.');
+                    SpeechForm.playmng();
+                };
+                msg.voice = voices[voiceindex];
+                //msg.voiceURI = 'native';
+                msg.volume = volume; // 0 to 1
+                msg.rate = 1.0; // 0.1 to 10
+                msg.pitch = 0; //0 to 2
+                msg.text = s;
+                //msg.lang = '';
+                //msg.lang = 'en-US'; //!!!
+                msg.lang = voices[voiceindex].lang; //!!!
+                //console.log(msg);
+                window.speechSynthesis.speak(msg);
+                //setTimeout(function() { window.speechSynthesis.speak(msg); }, 0);
+                if (++imsg == 2) imsg = 0;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

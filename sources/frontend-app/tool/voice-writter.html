@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .calc {
+            padding: 10px;
+            width: 100%;
+        }
+
+        .calc textarea {
+            padding: 5px;
+            width: 100%;
+        }
+
+        .calc button>i {
+            vertical-align: middle;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="lcol" class="d-flex justify-content-center">
+
+        <div id="doc" class="bg-danger mt-3 p-2 ">
+
+            <h1 class="text-center text-light">
+                Speech to text</h1>
+            <form>
+                <table class="calc">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" onclick="playbtn()" id="play" autofocus><i
+                                        class="material-icons">mic_none</i> Activate</button>
+                                <button type="button" onclick="select()"><i class="material-icons">select_all</i>
+                                    Select</button>
+                                <button type="reset" onclick="clear()"><i class="material-icons">clear</i>
+                                    Clear</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input rows="10" id="text" readonly class="outtext"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        var recognition;
+        var play = false;
+        $(document).ready(function () {
+            recognition = new (SpeechRecognition || webkitSpeechRecognition || mozSpeechRecognition || msSpeechRecognition)();
+            recognition = new (webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 5;
+            recognition.start();
+
+            recognition.onresult = function (event) {
+                var txt = event.results[0][0].transcript;
+                txt = $("#text").val() + txt;
+                $("#text").val(txt);
+                console.log('You said: ', event.results[0][0].transcript);
+            };
+            recognition.onspeechend = function () {
+                recognition.stop();
+            }
+        });
+        function playbtn() {
+            if (play) {
+                recognition.stop();
+                $("#play").html("<i class=\"material-icons\">mic_none</i> Activate");
+                play = false;
+            }
+            else {
+                $("#play").html("<i class=\"material-icons\">mic</i> Deactivate");
+                play = true;
+                recognition.start();
+            }
+        }
+        function select() {
+            $("#text").select();
+        }
+        function clear() {
+            $("#text").val("");
+        }
+    </script>
+
+
+</body>
+
+</html>
