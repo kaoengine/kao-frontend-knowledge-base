@@ -137,6 +137,8 @@ Setting flex-wrap to wrap-reverse can be seen as changing the cross start and cr
 ```
 
 #### justify-content
+This attribute defines how the elements are arranged on the main axis.
+This attribute will help allocate the remaining empty space after the flex element cannot be enlarged or has reached the maximum value.
 
 ```css
 .container {
