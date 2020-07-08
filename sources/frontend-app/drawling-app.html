@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!--jQuery UI south-street theme(green)-->
+    <link rel="stylesheet"
+        href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css">
+
+    <!--custom style-->
+    <style type="text/css">
+        body {
+            background: url(images/canvas.jpg) center center no-repeat fixed;
+            background-size: cover;
+            text-align: center;
+        }
+
+        /*title*/
+        #header {
+            background: linear-gradient(white, #f9563a);
+            background: -webkit-linear-gradient(white, #f9563a);
+            background: -moz-linear-gradient(white, #f9563a);
+            background: -o-linear-gradient(white, #f9563a);
+            background: -ms-linear-gradient(white, #f9563a);
+            height: 50px;
+            width: 500px;
+            margin: 10px auto;
+            font-size: 2em;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 10px;
+        }
+
+        /*input container*/
+        .inputContainer {
+            width: 200px;
+            margin: 10px auto;
+        }
+
+        /*color input, line thickeness, slider */
+        .input {
+            height: 30px;
+            font-size: 1.5em;
+        }
+
+        #paintColor {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        #slider {
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        #circle {
+            width: 3px;
+            height: 3px;
+            background-color: black;
+            border-radius: 50%;
+            margin: 10px auto 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /*top left corner is centered, we need to move half od diameter to left and up*/
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+        }
+
+        #thickenessInput {
+            position: relative;
+        }
+
+        /*canvas*/
+        #canvasContainer {
+
+            border: 2px solid rgba(0, 100, 0, 0.5);
+            border-radius: 10px;
+            margin: 10px auto;
+        }
+
+        #paint {
+            background-color: white;
+            cursor: crosshair;
+        }
+
+        /*buttons*/
+
+        .btnInput {
+            width: 133px;
+            color: darkgreen;
+            font-size: 1.3em;
+            font-weight: bold;
+            float: left;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #f9563a;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 3px rgba(0, 100, 0, 0.6);
+            -webkit-box-shadow: 0px 3px rgba(0, 100, 0, 0.6);
+            -moz-box-shadow: 0px 3px rgba(0, 100, 0, 0.6);
+            -o-box-shadow: 0px 3px rgba(0, 100, 0, 0.6);
+            -ms-box-shadow: 0px 3px rgba(0, 100, 0, 0.6);
+            position: relative;
+        }
+
+        .button:hover {
+            color: white;
+            background: linear-gradient(white, darkgreen);
+            background: -webkit-linear-gradient(white, darkgreen);
+            background: -moz-linear-gradient(white, darkgreen);
+            background: -o-linear-gradient(white, darkgreen);
+            background: -ms-linear-gradient(white, darkgreen);
+        }
+
+        .button:active {
+            top: 4px;
+        }
+
+        .eraseMode {
+            background-color: red;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="header" class="text-center text-dark">
+        Drawing Application</div>
+    <!--input-->
+    <div class="p-3  ">
+
+        <!--color-->
+        <div class="form-group" id="colorInput">
+            <input type="color" list id="paintColor" class="form-control">
+        </div>
+        <!--line thickeness-->
+        <div class="input" id="thickenessInput">
+            <div id="circle">
+            </div>
+        </div>
+        <!--slider-->
+        <div class=" form-group">
+            <div id="slider" class="form-control">
+            </div>
+        </div>
+    </div>
+    <!--canvas-->
+    <div class="d-flex justify-content-center">
+        <div id="canvasContainer">
+            <canvas id="paint" width="500px" height="400px"></canvas>
+        </div>
+    </div>
+    <!-- buttons-->
+    <div class="d-flex justify-content-center">
+        <!--Erase button -->
+        <div class="btnInput">
+            <span id="erase" class="button btn btn-danger">Erase</span>
+        </div>
+        <!--Save button -->
+        <div class="btnInput">
+            <span id="save" class="button btn btn-success">Save</span>
+        </div>
+        <!--Reset button -->
+        <div class="btnInput">
+            <span id="reset" class="button btn btn-warning">Reset</span>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- jQuery UI-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!--javascript-->
+    <script>
+        $(function () {
+
+            //paintingerasing or not
+            var paint = false;
+            //painting or erasing
+            var paint_erase = "paint";
+            //get the canvas and context
+            var canvas = document.getElementById("paint");
+            var ctx = canvas.getContext("2d");
+            //get the canvas container
+            var container = $("#canvasContainer");
+            //mouse position
+            var mouse = { x: 0, y: 0 };
+
+            //load saved work from local storage
+            if (localStorage.getItem("imgCanvas") != null) {
+                var img = new Image();
+                img.onload = function () {
+                    ctx.drawImage(img, 0, 0);
+                }
+                img.src = localStorage.getItem("imgCanvas");
+            }
+
+            //set drawing parameters(lineWidth, lineJoin, lineCup)
+            ctx.lineWidth = 3;
+            ctx.lineJoin = "round";
+            ctx.lineCap = "round";
+
+            //click inside container
+            container.mousedown(function (e) {
+                paint = true;
+                ctx.beginPath();
+
+                //mouse coordinate inside of the container
+                mouse.x = e.pageX - this.offsetLeft; //distance between mouse and left border of page minus distance from the page left border to canvas
+
+                mouse.y = e.pageY - this.offsetTop;
+                ctx.moveTo(mouse.x, mouse.y);
+            });
+
+            //move the mouse while holding mouse key
+            container.mousemove(function (e) {
+                mouse.x = e.pageX - this.offsetLeft;
+                mouse.y = e.pageY - this.offsetTop;
+                if (paint == true) {
+                    if (paint_erase == "paint") {
+                        // get color input
+                        ctx.strokeStyle = $("#paintColor").val();
+                    }
+                    else {
+                        //white color
+                        ctx.strokeStyle = "white";
+                    }
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.stroke();
+                }
+
+            });
+
+            //mouse up-- not paintingerasing anymore
+            container.mouseup(function () {
+                paint = false;
+            });
+
+            //if we leave the container we are not paintingerasing anymore
+            container.mouseleave(function () {
+                paint = false;
+            });
+
+            //click on the reset button
+            $("#reset").click(function () {
+                //clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                paint_erase = "paint";
+                $("#erase").removeClass("eraseMode");
+            });
+
+            //click on the save button
+            //save on user's browser
+            $("#save").click(function () {
+
+                if (typeof (localStorage) != null) {//check if the browser supports localStorage
+                    //store data 
+                    localStorage.setItem("imgCanvas", canvas.toDataURL());
+                }
+                else {
+                    window.alert("Your browser does not support local storage");
+                }
+            });
+
+            //click on the erase button
+            $("#erase").click(function () {
+                if (paint_erase == "paint") {
+                    paint_erase = "erase";
+                }
+                else {
+                    paint_erase = "paint";
+                }
+                $(this).toggleClass("eraseMode");
+            });
+
+            //change color input
+            $("#paintColor").change(function () {
+                $("#circle").css("background-color", $(this).val());
+            });
+
+            //change lineWidth using slider
+            $("#slider").slider({
+                //slider values for changing cicrle size
+                min: 3,
+                max: 30,
+                slide: function (event, ui) {
+                    $("#circle").height(ui.value);
+                    $("#circle").width(ui.value);
+                    //correspond to selected line thickeness
+                    ctx.lineWidth = ui.value;
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
