@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en-US" class="has-lab-nav-bottom lab-theme-dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<script>var showAds=false;</script>
+	<link rel="stylesheet" href="https://w3bits.com/wp-content/themes/w/labs.css">
+	<script>var NOAB = (function () {return {error: function (t) {console.log("Error");const scriptUrl = 'https://cdn.carbonads.com/carbon.js?serve=CK7DEKQ7&placement=w3bitscom';loadScript(scriptUrl, document.querySelector("#_gads"), '_carbonads_js', document.querySelector("#_gads"), document.querySelector("#_gads_html"), document.querySelector("#_gads_inline"));},success: function (t) {console.log("Success");}};})();const loadScript = (source, beforeEl, id = null, removeEl = null, removeHTML = null, removeJS = null, removeCSS = null, async = true, defer = true) => {return new Promise((resolve, reject) => {let script = document.createElement('script');const prior = beforeEl || document.getElementsByTagName('script')[0];script.async = async;script.defer = defer;if (id) script.id = id;function onloadHander(_, isAbort) {if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {script.onload = null;script.onreadystatechange = null;script = undefined;if (isAbort) {reject();} else {if (removeEl) removeEl.parentNode.removeChild(removeEl);if (removeHTML) removeHTML.parentNode.removeChild(removeHTML);if (removeJS) removeJS.parentNode.removeChild(removeJS);if (removeCSS) removeCSS.parentNode.removeChild(removeCSS);resolve();}}}script.onload = onloadHander;script.onreadystatechange = onloadHander;script.src = source;prior.parentNode.insertBefore(script, prior);});}</script>
+	<title>Animated Hamburger Icons with CSS - W3Bits</title>
+<script>
+var script = function(src) {
+    var e = document.createElement('script');
+    e.async = true;
+    e.src = src;
+    document.getElementsByTagName('head')[0].appendChild(e);
+};
+
+script("//s3.buysellads.com/ac/bsa.js");</script>
+<!-- This site is optimized with the Yoast SEO plugin v12.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://w3bits.com/labs/animated-hamburger-icons/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Animated Hamburger Icons with CSS - W3Bits" />
+<meta property="og:description" content="Animated Hamburger Icons Click on the icons to launch the transformation" />
+<meta property="og:url" content="https://w3bits.com/labs/animated-hamburger-icons/" />
+<meta property="og:site_name" content="W3Bits" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Animated Hamburger Icons Click on the icons to launch the transformation" />
+<meta name="twitter:title" content="Animated Hamburger Icons with CSS - W3Bits" />
+<meta name="twitter:site" content="@w3bits_" />
+<meta name="twitter:creator" content="@w3bits_" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://w3bits.com/#website","url":"https://w3bits.com/","name":"W3Bits","potentialAction":{"@type":"SearchAction","target":"https://w3bits.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://w3bits.com/labs/animated-hamburger-icons/#webpage","url":"https://w3bits.com/labs/animated-hamburger-icons/","inLanguage":"en-US","name":"Animated Hamburger Icons with CSS - W3Bits","isPartOf":{"@id":"https://w3bits.com/#website"},"datePublished":"2015-05-12T08:39:15+00:00","dateModified":"2015-05-12T17:41:10+00:00"}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='https://api.w.org/' href='https://w3bits.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://w3bits.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://w3bits.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://w3bits.com/?p=2491' />
+<link rel="alternate" type="application/json+oembed" href="https://w3bits.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fw3bits.com%2Flabs%2Fanimated-hamburger-icons%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://w3bits.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fw3bits.com%2Flabs%2Fanimated-hamburger-icons%2F&#038;format=xml" />
+<link rel="amphtml" href="https://w3bits.com/labs/animated-hamburger-icons/amp/"><style>
+
+body {
+	color: rgba(255,255,255, .75);
+	background: #345;
+}
+
+.title {
+	margin: 2em 0 1.25em;
+}
+
+.title,
+.desc {
+text-align: center;
+}
+
+.desc {
+font-size: 1em;
+}
+
+.grid {
+	text-align: center;
+	border-top: 1px solid #E5EFEE;
+}
+
+.grid-cell {
+	border: 1px solid #E5EFEE;
+	border-width: 0 1px 1px 0;
+	padding: 1.5em 2.5%;
+}
+@media only screen and (min-width: 1024px) {
+	.grid-cell {
+		float: left;
+		width: 33.33333%;
+		padding: 3.5em 1.66666%;
+	}
+
+	.grid-cell:nth-child(3n) {
+		border-right-width: 0;
+	}
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+	.grid-cell {
+		width: 50%;
+		float: left;
+		padding: 1.75em 1.5%;
+	}
+
+	.grid-cell:nth-child(3n) {
+		border-right-width: 1px;
+	}
+
+	.grid-cell:nth-child(2n) {
+		border-right-width: 0;
+	}
+}
+
+
+/* Hamburger Styles */
+
+.hamburger {
+  font-size: 50px;
+
+  display: inline-block;
+
+  width: 1em;
+  height: 1em;
+  padding: 0;
+
+  cursor: pointer;
+
+  transition: transform .2s ease-in-out;
+  -moz-transition: transform .2s ease-in-out;
+  -webkit-transition: transform .2s ease-in-out;
+
+  vertical-align: middle;
+
+  border: 0 none;
+  background: transparent;
+}
+
+/**
+ * Button height fix for Firefox
+ */
+.hamburger::-moz-focus-inner {
+  padding: 0;
+  border: 0 none;
+}
+
+/**
+ * Focus fix for Chrome
+ */
+.hamburger:focus {
+  outline: 0;
+}
+
+/**
+ * Styling the icon
+ */
+.hamburger:before,
+.hamburger:after {
+  content: "";
+}
+
+.hamburger:before,
+.hamburger .icon,
+.hamburger:after {
+  display: block;
+
+  width: 100%;
+  height: .2em;
+  margin: 0 0 .2em;
+
+  transition: transform .2s ease-in-out;
+  -moz-transition: transform .2s ease-in-out;
+  -webkit-transition: transform .2s ease-in-out;
+
+  border-radius: .25em;
+  -moz-border-radius: 25em;
+  -webkit-border-radius: .25em;
+
+  background: rgba(255, 255, 255, .65);
+}
+
+/**
+ * Styles for the active `.hamburger` icon
+ */
+.hamburger.active:before,
+.hamburger.active .icon,
+.hamburger.active:after {
+  background: white;
+}
+
+/**
+ * VERTICAL HAMBURGER
+ */
+.hamburger.hamburger-vertical.active {
+  transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+}
+
+/**
+ * CLOSE/CANCEL/CROSS
+ */
+.hamburger.hamburger-cancel.active .icon {
+  transform: scale(0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+.hamburger.hamburger-cancel.active:before {
+  transform: translateY(.4em) rotate(135deg);
+  -moz-transform: translateY(.4em) rotate(135deg);
+  -webkit-transform: translateY(.4em) rotate(135deg);
+}
+
+.hamburger.hamburger-cancel.active:after {
+  transform: translateY(-.4em) rotate(-135deg);
+  -moz-transform: translateY(-.4em) rotate(-135deg);
+  -webkit-transform: translateY(-.4em) rotate(-135deg);
+}
+
+/**
+ * PLUS
+ */
+.hamburger.hamburger-plus.active .icon {
+  transform: scale(0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+.hamburger.hamburger-plus.active:before {
+  transform: translateY(.4em) rotate(90deg);
+  -moz-transform: translateY(.4em) rotate(90deg);
+  -webkit-transform: translateY(.4em) rotate(90deg);
+}
+
+.hamburger.hamburger-plus.active:after {
+  transform: translateY(-.4em) rotate(180deg);
+  -moz-transform: translateY(-.4em) rotate(180deg);
+  -webkit-transform: translateY(-.4em) rotate(180deg);
+}
+
+/**
+ * MINUS/DASH
+ */
+.hamburger.hamburger-minus.active {
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.hamburger.hamburger-minus.active .icon {
+  transform: scale(0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+.hamburger.hamburger-minus.active:before {
+  transform: translateY(.4em);
+  -moz-transform: translateY(.4em);
+  -webkit-transform: translateY(.4em);
+}
+
+.hamburger.hamburger-minus.active:after {
+  transform: translateY(-.4em);
+  -moz-transform: translateY(-.4em);
+  -webkit-transform: translateY(-.4em);
+}
+
+/**
+ * LEFT ARROW
+ */
+.hamburger.hamburger-arrow-left.active {
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.hamburger.hamburger-arrow-left.active:before {
+  width: .6em;
+  transform: translateX(.4em) translateY(.2em) rotate(45deg);
+  -moz-transform: translateX(.4em) translateY(.2em) rotate(45deg);
+  -webkit-transform: translateX(.4em) translateY(.2em) rotate(45deg);
+}
+
+/*.hamburger.hamburger-arrow-left.active .icon {
+  border-radius: .1em .25em .25em .1em;
+  -moz-border-radius: .1em .25em .25em .1em;
+  -webkit-border-radius: .1em .25em .25em .1em;
+}*/
+
+.hamburger.hamburger-arrow-left.active:after {
+  width: .6em;
+  transform: translateX(.4em) translateY(-.2em) rotate(-45deg);
+  -moz-transform: translateX(.4em) translateY(-.2em) rotate(-45deg);
+  -webkit-transform: translateX(.4em) translateY(-.2em) rotate(-45deg);
+}
+
+/**
+ * RIGHT ARROW
+ */
+.hamburger.hamburger-arrow-right.active {
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.hamburger.hamburger-arrow-right.active:before {
+  width: .6em;
+  transform: translateX(0) translateY(.2em) rotate(-45deg);
+  -moz-transform: translateX(0) translateY(.2em) rotate(-45deg);
+  -webkit-transform: translateX(0) translateY(.2em) rotate(-45deg);
+}
+
+/*.hamburger.hamburger-arrow-right.active .icon {
+  border-radius: .25em .1em .1em .25em;
+  -moz-border-radius: .25em .1em .1em .25em;
+  -webkit-border-radius: .25em .1em .1em .25em;
+}*/
+
+.hamburger.hamburger-arrow-right.active:after {
+  width: .6em;
+  transform: translateX(0) translateY(-.2em) rotate(45deg);
+  -moz-transform: translateX(0) translateY(-.2em) rotate(45deg);
+  -webkit-transform: translateX(0) translateY(-.2em) rotate(45deg);
+}
+
+
+</style></head>
+<body class="labs-template-default single single-labs postid-2491">
+<div class="container">
+<nav class="cf lab-nav lab-nav--dark">    <a href="http://w3bits.com/animated-hamburger-icons/" title="Back to the article" class="lab-article-link">
+        <svg class="icon icon-right-open">
+            <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-angle-left"></use>
+        </svg><span> Article</span></a>
+    <ul class="lab-share">
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://w3bits.com/animated-hamburger-icons/" title="Share on Facebook">
+                <svg class="icon icon-facebook">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-facebook"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://twitter.com/intent/tweet?original_referer=http://w3bits.com/animated-hamburger-icons/&text=$article_title&url=http://w3bits.com/animated-hamburger-icons/&via=w3bits_" title="Tweet">
+                <svg class="icon icon-twitter">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-twitter"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://plus.google.com/share?url=http://w3bits.com/animated-hamburger-icons/" title="Share on Google+">
+                <svg class="icon icon-gplus">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-google-plus"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="javascript:void((function(d){var%20e=d.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);d.body.appendChild(e)})(document));" title="Pin-it on Pinterest">
+                <svg class="icon icon-pinterest">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-pinterest-p"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://www.addthis.com/bookmark.php?url=http://w3bits.com/animated-hamburger-icons/" class="share-link" rel="external nofollow" title="Share the love" target="_blank">
+                <svg class="icon icon-share">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-share-alt"></use>
+                </svg><span></span></a>
+        </li>
+    </ul>
+</nav>
+	  
+		
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- W3Bits Labs -->
+<ins id="_gads_html" class="adsbygoogle"
+     style="display:block; margin-bottom: 1.5em;"
+     data-ad-client="ca-pub-1581655830066906"
+     data-ad-slot="5340206762"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	  
+	<div class="wrapper">
+	<h1 class="title">Animated Hamburger Icons</h1>
+	<h3 class="desc">Click on the icons to launch the transformation</h3>
+	<div class="grid">
+		<div class="grid-cell">
+			<button class="hamburger hamburger-cancel">
+				<span class="icon"></span>
+			</button>
+		</div>
+
+		<div class="grid-cell">
+			<button class="hamburger hamburger-plus">
+				<span class="icon"></span>
+			</button>
+		</div>
+
+		<div class="grid-cell">
+			<button class="hamburger hamburger-minus">
+				<span class="icon"></span>
+			</button>
+		</div>
+
+		<div class="grid-cell">
+			<button class="hamburger hamburger-arrow-left">
+				<span class="icon"></span>
+			</button>
+		</div>
+
+		<div class="grid-cell">
+			<button class="hamburger hamburger-vertical">
+				<span class="icon"></span>
+			</button>
+		</div>
+
+		<div class="grid-cell">
+			<button class="hamburger hamburger-arrow-right">
+				<span class="icon"></span>
+			</button>
+		</div>
+	</div>
+</div>		<div class="cf clearfix" style="margin-top: 2.5em;">
+		<div id="bsap_1298954" class="bsarocks bsap_48345e67ddcc36849ca0364b24b36d10"></div>
+		</div>
+<a href="https://w3bits.com/follow/" class="lab-follow lab-follow--dark"><svg class="icon icon-plus"><use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-heart"></use></svg> Follow</a>
+
+<script>
+	var el = document.querySelectorAll('.hamburger');
+	for(i=0; i<=el.length; i++) {
+		el[i].addEventListener('click', function() {
+			this.classList.toggle('active');
+		}, false);
+	}
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-10703354-8', 'w3bits.com');ga('require', 'displayfeatures');ga('send', 'pageview');</script><script type='text/javascript' src='https://w3bits.com/wp-content/themes/w/assets/js/prettify.js'></script>
+<script type='text/javascript'>
+prettyPrint()
+</script>
+</div>
+</body>
+</html>

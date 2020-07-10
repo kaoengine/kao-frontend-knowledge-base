@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class=" lab-theme-light" lang="en-US"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="https://w3bits.com/wp-content/themes/w/labs.css">
+	<script>var NOAB = (function () {return {error: function (t) {console.log("Error");const scriptUrl = 'https://cdn.carbonads.com/carbon.js?serve=CK7DEKQ7&placement=w3bitscom';loadScript(scriptUrl, document.querySelector("#_gads"), '_carbonads_js', document.querySelector("#_gads"), document.querySelector("#_gads_html"), document.querySelector("#_gads_inline"));},success: function (t) {console.log("Success");}};})();const loadScript = (source, beforeEl, id = null, removeEl = null, removeHTML = null, removeJS = null, removeCSS = null, async = true, defer = true) => {return new Promise((resolve, reject) => {let script = document.createElement('script');const prior = beforeEl || document.getElementsByTagName('script')[0];script.async = async;script.defer = defer;if (id) script.id = id;function onloadHander(_, isAbort) {if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {script.onload = null;script.onreadystatechange = null;script = undefined;if (isAbort) {reject();} else {if (removeEl) removeEl.parentNode.removeChild(removeEl);if (removeHTML) removeHTML.parentNode.removeChild(removeHTML);if (removeJS) removeJS.parentNode.removeChild(removeJS);if (removeCSS) removeCSS.parentNode.removeChild(removeCSS);resolve();}}}script.onload = onloadHander;script.onreadystatechange = onloadHander;script.src = source;prior.parentNode.insertBefore(script, prior);});}</script>
+	<title>CSS-only Social Navigation using SVG Icons - W3Bits</title>
+<script>
+var script = function(src) {
+    var e = document.createElement('script');
+    e.async = true;
+    e.src = src;
+    document.getElementsByTagName('head')[0].appendChild(e);
+};
+
+script("//s3.buysellads.com/ac/bsa.js");</script><script async="" src="//s3.buysellads.com/ac/bsa.js"></script>
+<!-- This site is optimized with the Yoast SEO plugin v12.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="A quick and simple social navigation built using SVG icons. Icons are rendered using an SVG sprite, which is created using IcoMoon App.">
+<link rel="canonical" href="https://w3bits.com/labs/svg-sprites/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-only Social Navigation using SVG Icons - W3Bits">
+<meta property="og:description" content="A quick and simple social navigation built using SVG icons. Icons are rendered using an SVG sprite, which is created using IcoMoon App.">
+<meta property="og:url" content="https://w3bits.com/labs/svg-sprites/">
+<meta property="og:site_name" content="W3Bits">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="A quick and simple social navigation built using SVG icons. Icons are rendered using an SVG sprite, which is created using IcoMoon App.">
+<meta name="twitter:title" content="CSS-only Social Navigation using SVG Icons - W3Bits">
+<meta name="twitter:site" content="@w3bits_">
+<meta name="twitter:creator" content="@w3bits_">
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://w3bits.com/#website","url":"https://w3bits.com/","name":"W3Bits","potentialAction":{"@type":"SearchAction","target":"https://w3bits.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://w3bits.com/labs/svg-sprites/#webpage","url":"https://w3bits.com/labs/svg-sprites/","inLanguage":"en-US","name":"CSS-only Social Navigation using SVG Icons - W3Bits","isPartOf":{"@id":"https://w3bits.com/#website"},"datePublished":"2018-12-25T12:46:12+00:00","dateModified":"2018-12-25T13:15:37+00:00","description":"A quick and simple social navigation built using SVG icons. Icons are rendered using an SVG sprite, which is created using IcoMoon App."}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="https://api.w.org/" href="https://w3bits.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://w3bits.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://w3bits.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://w3bits.com/?p=3907">
+<link rel="alternate" type="application/json+oembed" href="https://w3bits.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fw3bits.com%2Flabs%2Fsvg-sprites%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://w3bits.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fw3bits.com%2Flabs%2Fsvg-sprites%2F&amp;format=xml">
+<link rel="amphtml" href="https://w3bits.com/labs/svg-sprites/amp/">                              <style>
+
+    /* svg-icon Baseline */
+    .svg-icon {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+      transition: transform .3s ease-in-out;
+    }
+
+    /* Set up a list for the svg-icons */
+    .svg-icon-list {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    .svg-icon-list > li {
+      display: block;
+      margin: 0;
+    }
+
+    /* The basic list-button */
+    .list-btn {
+      display: flex;
+      align-items: center;
+      padding: 1em;
+      text-decoration: none;
+      color: rgba(255, 255, 255, .9);
+      transition: color 100ms, background-color 100ms ease-in-out;
+    }
+
+    .svg-icon + .svg-icon-label {
+      margin-left: .75em;
+    }
+
+    .list-btn:hover,
+    .list-btn:active,
+    .list-btn:focus {
+      background-color: #fff;
+    }
+
+    .list-btn:hover .svg-icon,
+    .list-btn:active .svg-icon,
+    .list-btn:focus .svg-icon {
+       transform: scale(1.5) rotate(15deg);
+    }
+
+    /* Facebook button */
+    .list-btn--facebook {
+      background-color: #3b5998;
+    }
+
+    .list-btn--facebook:hover,
+    .list-btn--facebook:active,
+    .list-btn--facebook:focus {
+      color: #3b5998;
+    }
+
+    /* Twitter button */
+    .list-btn--twitter {
+      background-color: #1da1f2;
+    }
+
+    .list-btn--twitter:hover,
+    .list-btn--twitter:active,
+    .list-btn--twitter:focus {
+      color: #1da1f2;
+    }
+
+    /* Google+ button */
+    .list-btn--google-plus {
+      background-color: #dd4b39;
+    }
+
+    .list-btn--google-plus:hover,
+    .list-btn--google-plus:active,
+    .list-btn--google-plus:focus {
+      color: #dd4b39;
+    }
+
+    /* Pinterest button */
+    .list-btn--pinterest {
+      background-color: #bd081c;
+    }
+
+    .list-btn--pinterest:hover,
+    .list-btn--pinterest:active,
+    .list-btn--pinterest:focus {
+      color: #bd081c;
+    }
+
+    /* RSS feed button */
+    .list-btn--feed {
+      background-color: #f26522;
+    }
+
+    .list-btn--feed:hover,
+    .list-btn--feed:active,
+    .list-btn--feed:focus {
+      color: #f26522;
+    }
+
+    /* Email button */
+    .list-btn--email {
+      background-color: #ffcc00;
+    }
+
+    .list-btn--email:hover,
+    .list-btn--email:active,
+    .list-btn--email:focus {
+      color: #ffcc00;
+    }
+  </style>                                 </head>
+<body class="labs-template-default single single-labs postid-3907" cz-shortcut-listen="true">
+<div class="container">
+<nav class="cf lab-nav lab-nav--light">    <a href="https://w3bits.com/svg-sprites/" title="Back to the article" class="lab-article-link">
+        <svg class="icon icon-right-open">
+            <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-angle-left"></use>
+        </svg><span> Article</span></a>
+    <ul class="lab-share">
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook">
+                <svg class="icon icon-facebook">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-facebook"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://twitter.com/intent/tweet?original_referer=&amp;text=$article_title&amp;url=&amp;via=w3bits_" title="Tweet">
+                <svg class="icon icon-twitter">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-twitter"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://plus.google.com/share?url=" title="Share on Google+">
+                <svg class="icon icon-gplus">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-google-plus"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="javascript:void((function(d){var%20e=d.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);d.body.appendChild(e)})(document));" title="Pin-it on Pinterest">
+                <svg class="icon icon-pinterest">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-pinterest-p"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://www.addthis.com/bookmark.php?url=" class="share-link" rel="external nofollow" title="Share the love" target="_blank">
+                <svg class="icon icon-share">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-share-alt"></use>
+                </svg><span></span></a>
+        </li>
+    </ul>
+</nav>
+	<div class="wrapper">
+	  
+		
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- W3Bits Labs -->
+<ins id="_gads_html" class="adsbygoogle" style="display:block; margin-bottom: 1.5em;" data-ad-client="ca-pub-1581655830066906" data-ad-slot="5340206762" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	  
+	<ul class="svg-icon-list">
+  <li>
+    <a href="//www.facebook.com/w3bits" class="list-btn list-btn--facebook">
+      <svg class="svg-icon">
+        <use xlink:href="//w3bits.com/files/sprite.svg#icon-facebook"></use>
+      </svg>
+      <span class="svg-icon-label">Like us on Facebook</span>
+    </a>
+  </li>
+  <li>
+    <a href="//twitter.com/w3bits_" class="list-btn list-btn--twitter">
+      <svg class="svg-icon">
+        <use xlink:href="//w3bits.com/files/sprite.svg#icon-twitter"></use>
+      </svg>
+      <span class="svg-icon-label">Send us a Tweet</span>
+    </a>
+  </li>
+  <li>
+    <a href="//plus.google.com/+W3Bits" class="list-btn list-btn--google-plus">
+      <svg class="svg-icon">
+        <use xlink:href="//w3bits.com/files/sprite.svg#icon-google-plus"></use>
+      </svg>
+      <span class="svg-icon-label">Circle us on Google+</span>
+    </a>
+  </li>
+  <li>
+    <a href="//pinterest.com/w3bits" class="list-btn list-btn--pinterest">
+      <svg class="svg-icon">
+        <use xlink:href="//w3bits.com/files/sprite.svg#icon-pinterest"></use>
+      </svg>
+      <span class="svg-icon-label">Follow our Pinboards</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://w3bits.com/feed/" class="list-btn list-btn--feed">
+      <svg class="svg-icon">
+        <use xlink:href="//w3bits.com/files/sprite.svg#icon-feed"></use>
+      </svg>
+      <span class="svg-icon-label">Grab the RSS Feed</span>
+    </a>
+  </li>
+  <li>
+    <a href="#" class="list-btn list-btn--email">
+      <svg class="svg-icon">
+        <use xlink:href="//w3bits.com/files/sprite.svg#icon-email"></use>
+      </svg>
+      <span class="svg-icon-label">Get Email Updates</span>
+    </a>
+  </li>
+</ul>		<div class="cf clearfix" style="margin-top: 2.5em;">
+		<div id="bsap_1298954" class="bsarocks bsap_48345e67ddcc36849ca0364b24b36d10"></div>
+		</div>
+	<a href="https://w3bits.com/svg-sprites/" class="lab-article-button">Read the Article <svg class="icon icon-arrow-right"><use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-arrow-right"></use></svg></a>
+	</div>
+<a href="https://w3bits.com/follow/" class="lab-follow"><svg class="icon icon-plus"><use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-heart"></use></svg> Follow</a>
+
+                                                                                                                        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-10703354-8', 'w3bits.com');ga('require', 'displayfeatures');ga('send', 'pageview');</script><script type="text/javascript" src="https://w3bits.com/wp-content/themes/w/assets/js/prettify.js"></script>
+<script type="text/javascript">
+prettyPrint()
+</script>
+</div>
+
+</body></html>
