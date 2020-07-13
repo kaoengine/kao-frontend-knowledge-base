@@ -7,11 +7,11 @@ Các bảng HTML cho phép các nhà phát triển web sắp xếp dữ liệu t
 #### Define an HTML Table
 Thẻ <table> xác định bảng HTML.
 
-Mỗi dòng trong bảng được xác định bằng thẻ <tr>. Mỗi tiêu đề bảng được xác định bằng thẻ <th>. Mỗi cột / ô của bảng được xác định bằng thẻ <td>.
+Mỗi dòng trong bảng được xác định bằng thẻ \<tr\>. Mỗi tiêu đề bảng được xác định bằng thẻ \<th\>. Mỗi cột / ô của bảng được xác định bằng thẻ \<td\>.
 
-Theo mặc định, văn bản trong các phần tử <th> được in đậm và căn giữa.
+Theo mặc định, văn bản trong các phần tử \<th\> được in đậm và căn giữa.
 
-Theo mặc định, văn bản trong các phần tử <td> là thông thường và được căn trái.
+Theo mặc định, văn bản trong các phần tử \<td\> là thông thường và được căn trái.
 
 ```html
 <table style="width:100%">
@@ -60,7 +60,7 @@ table, th, td {
 
 #### HTML Table - Add a Caption
 
-Để thêm chú thích vào bảng, hãy sử dụng thẻ <caption>:
+Để thêm chú thích vào bảng, hãy sử dụng thẻ \<caption\>:
 
 ```html
 <table style="width:100%">
@@ -79,7 +79,7 @@ table, th, td {
   </tr>
 </table>
 ```
-> Lưu ý: Thẻ <caption> phải được chèn ngay sau thẻ <table>.
+> Lưu ý: Thẻ \<caption\> phải được chèn ngay sau thẻ <table>.
 
 #### A Special Style for One Table
 

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class=" lab-theme-light" lang="en-US"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="https://w3bits.com/wp-content/themes/w/labs.css">
+	<script>var NOAB = (function () {return {error: function (t) {console.log("Error");const scriptUrl = 'https://cdn.carbonads.com/carbon.js?serve=CK7DEKQ7&placement=w3bitscom';loadScript(scriptUrl, document.querySelector("#_gads"), '_carbonads_js', document.querySelector("#_gads"), document.querySelector("#_gads_html"), document.querySelector("#_gads_inline"));},success: function (t) {console.log("Success");}};})();const loadScript = (source, beforeEl, id = null, removeEl = null, removeHTML = null, removeJS = null, removeCSS = null, async = true, defer = true) => {return new Promise((resolve, reject) => {let script = document.createElement('script');const prior = beforeEl || document.getElementsByTagName('script')[0];script.async = async;script.defer = defer;if (id) script.id = id;function onloadHander(_, isAbort) {if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {script.onload = null;script.onreadystatechange = null;script = undefined;if (isAbort) {reject();} else {if (removeEl) removeEl.parentNode.removeChild(removeEl);if (removeHTML) removeHTML.parentNode.removeChild(removeHTML);if (removeJS) removeJS.parentNode.removeChild(removeJS);if (removeCSS) removeCSS.parentNode.removeChild(removeCSS);resolve();}}}script.onload = onloadHander;script.onreadystatechange = onloadHander;script.src = source;prior.parentNode.insertBefore(script, prior);});}</script>
+	<title>An Image-only Masonry in Horizontal Order with CSS Grid - W3Bits</title>
+<script>
+var script = function(src) {
+    var e = document.createElement('script');
+    e.async = true;
+    e.src = src;
+    document.getElementsByTagName('head')[0].appendChild(e);
+};
+
+script("//s3.buysellads.com/ac/bsa.js");</script><script async="" src="//s3.buysellads.com/ac/bsa.js"></script>
+<!-- This site is optimized with the Yoast SEO plugin v12.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Image-only CSS Grid made using CSS Grid properties and a tiny bit of JavaScript. The ordering of masonry items is from left-to-right.">
+<link rel="canonical" href="https://w3bits.com/labs/css-grid-masonry-images/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An Image-only Masonry in Horizontal Order with CSS Grid - W3Bits">
+<meta property="og:description" content="Image-only CSS Grid made using CSS Grid properties and a tiny bit of JavaScript. The ordering of masonry items is from left-to-right.">
+<meta property="og:url" content="https://w3bits.com/labs/css-grid-masonry-images/">
+<meta property="og:site_name" content="W3Bits">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Image-only CSS Grid made using CSS Grid properties and a tiny bit of JavaScript. The ordering of masonry items is from left-to-right.">
+<meta name="twitter:title" content="An Image-only Masonry in Horizontal Order with CSS Grid - W3Bits">
+<meta name="twitter:site" content="@w3bits_">
+<meta name="twitter:image" content="https://unsplash.it/700/800?image=1">
+<meta name="twitter:creator" content="@w3bits_">
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://w3bits.com/#website","url":"https://w3bits.com/","name":"W3Bits","potentialAction":{"@type":"SearchAction","target":"https://w3bits.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://w3bits.com/labs/css-grid-masonry-images/#primaryimage","url":"https://unsplash.it/700/800?image=1"},{"@type":"WebPage","@id":"https://w3bits.com/labs/css-grid-masonry-images/#webpage","url":"https://w3bits.com/labs/css-grid-masonry-images/","inLanguage":"en-US","name":"An Image-only Masonry in Horizontal Order with CSS Grid - W3Bits","isPartOf":{"@id":"https://w3bits.com/#website"},"primaryImageOfPage":{"@id":"https://w3bits.com/labs/css-grid-masonry-images/#primaryimage"},"datePublished":"2018-12-23T15:55:58+00:00","dateModified":"2019-01-03T15:54:15+00:00","description":"Image-only CSS Grid made using CSS Grid properties and a tiny bit of JavaScript. The ordering of masonry items is from left-to-right."}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="https://api.w.org/" href="https://w3bits.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://w3bits.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://w3bits.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://w3bits.com/?p=3785">
+<link rel="alternate" type="application/json+oembed" href="https://w3bits.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fw3bits.com%2Flabs%2Fcss-grid-masonry-images%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://w3bits.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fw3bits.com%2Flabs%2Fcss-grid-masonry-images%2F&amp;format=xml">
+<link rel="amphtml" href="https://w3bits.com/labs/css-grid-masonry-images/amp/">          <style>
+  :root {
+    counter-reset: masonry;
+  }
+  .masonry {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    grid-auto-rows: 0;
+  }
+
+  .masonry-item {
+    border-radius: 5px;
+  }
+
+  .masonry-item {
+     background-color: #eee;
+     border-radius: 5px;
+     overflow: hidden;
+  }
+
+  .masonry-item,
+  .masonry-item img {
+     position: relative;
+  }
+
+  .masonry-item:after {
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, .5);
+    content: counter(masonry);
+    counter-increment: masonry;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    transition: all .1s ease-in;
+  }
+
+  .masonry-item:hover:after {
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, .75);
+  }
+</style>          </head>
+<body class="labs-template-default single single-labs postid-3785" cz-shortcut-listen="true">
+<div class="container">
+<nav class="cf lab-nav lab-nav--light">    <a href="https://w3bits.com/css-grid-masonry/" title="Back to the article" class="lab-article-link">
+        <svg class="icon icon-right-open">
+            <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-angle-left"></use>
+        </svg><span> Article</span></a>
+    <ul class="lab-share">
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook">
+                <svg class="icon icon-facebook">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-facebook"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://twitter.com/intent/tweet?original_referer=&amp;text=$article_title&amp;url=&amp;via=w3bits_" title="Tweet">
+                <svg class="icon icon-twitter">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-twitter"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://plus.google.com/share?url=" title="Share on Google+">
+                <svg class="icon icon-gplus">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-google-plus"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="javascript:void((function(d){var%20e=d.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);d.body.appendChild(e)})(document));" title="Pin-it on Pinterest">
+                <svg class="icon icon-pinterest">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-pinterest-p"></use>
+                </svg>
+            </a>
+        </li><!--
+	--><li>
+            <a href="https://www.addthis.com/bookmark.php?url=" class="share-link" rel="external nofollow" title="Share the love" target="_blank">
+                <svg class="icon icon-share">
+                    <use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-share-alt"></use>
+                </svg><span></span></a>
+        </li>
+    </ul>
+</nav>
+	<div class="wrapper">
+	  
+		
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- W3Bits Labs -->
+<ins id="_gads_html" class="adsbygoogle" style="display:block; margin-bottom: 1.5em;" data-ad-client="ca-pub-1581655830066906" data-ad-slot="5340206762" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	  
+	    <div class="masonry">
+      <div class="masonry-item" style="grid-row-end: span 30;"><img src="https://unsplash.it/700/800?image=1" alt="Masonry Brick #1" class="masonry-content" style="height: 300px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 23;"><img src="https://unsplash.it/700/600?image=2" alt="Masonry Brick #2" class="masonry-content" style="height: 230px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 16;"><img src="https://unsplash.it/700/400?image=3" alt="Masonry Brick #3" class="masonry-content" style="height: 160px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/500?image=4" alt="Masonry Brick #4" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 26;"><img src="https://unsplash.it/700/700?image=5" alt="Masonry Brick #5" class="masonry-content" style="height: 260px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 12;"><img src="https://unsplash.it/700/300?image=6" alt="Masonry Brick #6" class="masonry-content" style="height: 120px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/500?image=7" alt="Masonry Brick #7" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 25;"><img src="https://unsplash.it/700/650?image=8" alt="Masonry Brick #8" class="masonry-content" style="height: 250px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 14;"><img src="https://unsplash.it/700/350?image=9" alt="Masonry Brick #9" class="masonry-content" style="height: 140px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 16;"><img src="https://unsplash.it/700/420?image=10" alt="Masonry Brick #10" class="masonry-content" style="height: 160px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 12;"><img src="https://unsplash.it/700/300?image=11" alt="Masonry Brick #11" class="masonry-content" style="height: 120px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/500?image=12" alt="Masonry Brick #12" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 21;"><img src="https://unsplash.it/700/550?image=13" alt="Masonry Brick #13" class="masonry-content" style="height: 210px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 34;"><img src="https://unsplash.it/700/900?image=14" alt="Masonry Brick #14" class="masonry-content" style="height: 340px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 30;"><img src="https://unsplash.it/700/800?image=15" alt="Masonry Brick #15" class="masonry-content" style="height: 300px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 16;"><img src="https://unsplash.it/700/400?image=16" alt="Masonry Brick #16" class="masonry-content" style="height: 160px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/500?image=17" alt="Masonry Brick #17" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 25;"><img src="https://unsplash.it/700/650?image=18" alt="Masonry Brick #18" class="masonry-content" style="height: 250px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 21;"><img src="https://unsplash.it/700/550?image=19" alt="Masonry Brick #19" class="masonry-content" style="height: 210px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 17;"><img src="https://unsplash.it/700/440?image=20" alt="Masonry Brick #20" class="masonry-content" style="height: 170px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/480?image=21" alt="Masonry Brick #21" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 26;"><img src="https://unsplash.it/700/680?image=22" alt="Masonry Brick #22" class="masonry-content" style="height: 260px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 34;"><img src="https://unsplash.it/700/920?image=23" alt="Masonry Brick #23" class="masonry-content" style="height: 340px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 25;"><img src="https://unsplash.it/700/650?image=24" alt="Masonry Brick #24" class="masonry-content" style="height: 250px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 14;"><img src="https://unsplash.it/700/350?image=25" alt="Masonry Brick #25" class="masonry-content" style="height: 140px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 17;"><img src="https://unsplash.it/700/425?image=26" alt="Masonry Brick #26" class="masonry-content" style="height: 170px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/500?image=27" alt="Masonry Brick #27" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 18;"><img src="https://unsplash.it/700/450?image=28" alt="Masonry Brick #28" class="masonry-content" style="height: 180px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 14;"><img src="https://unsplash.it/700/350?image=29" alt="Masonry Brick #29" class="masonry-content" style="height: 140px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 34;"><img src="https://unsplash.it/700/900?image=30" alt="Masonry Brick #30" class="masonry-content" style="height: 340px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 20;"><img src="https://unsplash.it/700/520?image=31" alt="Masonry Brick #31" class="masonry-content" style="height: 200px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 25;"><img src="https://unsplash.it/700/650?image=32" alt="Masonry Brick #32" class="masonry-content" style="height: 250px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 28;"><img src="https://unsplash.it/700/750?image=33" alt="Masonry Brick #33" class="masonry-content" style="height: 280px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 30;"><img src="https://unsplash.it/700/800?image=34" alt="Masonry Brick #34" class="masonry-content" style="height: 300px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 34;"><img src="https://unsplash.it/700/900?image=35" alt="Masonry Brick #35" class="masonry-content" style="height: 340px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 16;"><img src="https://unsplash.it/700/420?image=36" alt="Masonry Brick #36" class="masonry-content" style="height: 160px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 14;"><img src="https://unsplash.it/700/350?image=37" alt="Masonry Brick #37" class="masonry-content" style="height: 140px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 23;"><img src="https://unsplash.it/700/600?image=38" alt="Masonry Brick #38" class="masonry-content" style="height: 230px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/480?image=39" alt="Masonry Brick #39" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 24;"><img src="https://unsplash.it/700/640?image=40" alt="Masonry Brick #40" class="masonry-content" style="height: 240px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 14;"><img src="https://unsplash.it/700/350?image=41" alt="Masonry Brick #41" class="masonry-content" style="height: 140px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 15;"><img src="https://unsplash.it/700/380?image=42" alt="Masonry Brick #42" class="masonry-content" style="height: 150px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 16;"><img src="https://unsplash.it/700/420?image=43" alt="Masonry Brick #43" class="masonry-content" style="height: 160px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 19;"><img src="https://unsplash.it/700/500?image=44" alt="Masonry Brick #44" class="masonry-content" style="height: 190px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 24;"><img src="https://unsplash.it/700/640?image=45" alt="Masonry Brick #45" class="masonry-content" style="height: 240px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 26;"><img src="https://unsplash.it/700/680?image=46" alt="Masonry Brick #46" class="masonry-content" style="height: 260px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 26;"><img src="https://unsplash.it/700/700?image=47" alt="Masonry Brick #47" class="masonry-content" style="height: 260px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 14;"><img src="https://unsplash.it/700/350?image=48" alt="Masonry Brick #48" class="masonry-content" style="height: 140px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 16;"><img src="https://unsplash.it/700/400?image=49" alt="Masonry Brick #49" class="masonry-content" style="height: 160px;"></div>
+      <div class="masonry-item" style="grid-row-end: span 30;"><img src="https://unsplash.it/700/800?image=50" alt="Masonry Brick #50" class="masonry-content" style="height: 300px;"></div>
+    </div>		<div class="cf clearfix" style="margin-top: 2.5em;">
+		<div id="bsap_1298954" class="bsarocks bsap_48345e67ddcc36849ca0364b24b36d10"></div>
+		</div>
+	<a href="https://w3bits.com/css-grid-masonry/" class="lab-article-button">Read the Article <svg class="icon icon-arrow-right"><use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-arrow-right"></use></svg></a>
+	</div>
+<a href="https://w3bits.com/follow/" class="lab-follow"><svg class="icon icon-plus"><use xlink:href="https://w3bits.com/wp-content/themes/w/assets/images/sprite.svg#icon-heart"></use></svg> Follow</a>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+<script>
+/**
+ * Set appropriate spanning to any masonry item
+ *
+ * Get different properties we already set for the masonry, calculate 
+ * height or spanning for any cell of the masonry grid based on its 
+ * content-wrapper's height, the (row) gap of the grid, and the size 
+ * of the implicit row tracks.
+ *
+ * @param item Object A brick/tile/cell inside the masonry
+ */
+function resizeMasonryItem(item){
+  /* Get the grid object, its row-gap, and the size of its implicit rows */
+  var grid = document.getElementsByClassName('masonry')[0],
+      rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap')),
+      rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+
+  /*
+   * Spanning for any brick = S
+   * Grid's row-gap = G
+   * Size of grid's implicitly create row-track = R
+   * Height of item content = H
+   * Net height of the item = H1 = H + G
+   * Net height of the implicit row-track = T = G + R
+   * S = H1 / T
+   */
+  var rowSpan = Math.ceil((item.querySelector('.masonry-content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+
+  /* Set the spanning as calculated above (S) */
+  item.style.gridRowEnd = 'span '+rowSpan;
+
+  /* Make the images take all the available space in the cell/item */
+  item.querySelector('.masonry-content').style.height = rowSpan * 10 + "px";
+}
+
+/**
+ * Apply spanning to all the masonry items
+ *
+ * Loop through all the items and apply the spanning to them using 
+ * `resizeMasonryItem()` function.
+ *
+ * @uses resizeMasonryItem
+ */
+function resizeAllMasonryItems(){
+  // Get all item class objects in one list
+  var allItems = document.getElementsByClassName('masonry-item');
+
+  /*
+   * Loop through the above list and execute the spanning function to
+   * each list-item (i.e. each masonry item)
+   */
+  for(var i=0;i>allItems.length;i++){
+    resizeMasonryItem(allItems[i]);
+  }
+}
+
+/**
+ * Resize the items when all the images inside the masonry grid 
+ * finish loading. This will ensure that all the content inside our
+ * masonry items is visible.
+ *
+ * @uses ImagesLoaded
+ * @uses resizeMasonryItem
+ */
+function waitForImages() {
+  var allItems = document.getElementsByClassName('masonry-item');
+  for(var i=0;i<allItems.length;i++){
+    imagesLoaded( allItems[i], function(instance) {
+      var item = instance.elements[0];
+      resizeMasonryItem(item);
+    } );
+  }
+}
+
+/* Resize all the grid items on the load and resize events */
+var masonryEvents = ['load', 'resize'];
+masonryEvents.forEach( function(event) {
+  window.addEventListener(event, resizeAllMasonryItems);
+} );
+
+/* Do a resize once more when all the images finish loading */
+waitForImages();
+</script>          <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-10703354-8', 'w3bits.com');ga('require', 'displayfeatures');ga('send', 'pageview');</script><script type="text/javascript" src="https://w3bits.com/wp-content/themes/w/assets/js/prettify.js"></script>
+<script type="text/javascript">
+prettyPrint()
+</script>
+</div>
+
+</body></html>

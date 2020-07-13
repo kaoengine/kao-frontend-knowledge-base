@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f2f2f2;
+        color: #111;
+      }
+      h2 {
+        text-align: center;
+      }
+      .slideshow-container {
+        max-width: 500px;
+        position: relative;
+        margin: auto;
+      }
+      .mySlides {
+        display: none;
+      }
+
+      .text {
+        position: absolute;
+        bottom: 10px;
+        font-size: 15px;
+        background-color: #111;
+        color: #f2f2f2;
+        width: 100%;
+        text-align: center;
+        padding: 8px 12px;
+      }
+
+      .dot {
+        cursor: pointer;
+        height: 13px;
+        width: 13px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #333;
+      }
+
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 3s;
+        animation-name: fade;
+        animation-duration: 3s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <h2>Slider</h2>
+      <div class="mySlides fade">
+        <img src="/images/img_nature.jpg" style="width: 100%;" />
+        <div class="text">Content 1</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="/images/img_nature.jpg" style="width: 100%;" />
+        <div class="text">Content 2</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="/images/img_nature.jpg" style="width: 100%;" />
+        <div class="text">Content 3</div>
+      </div>
+    </div>
+    <br />
+
+    <div style="text-align: center;">
+      <span class="dot" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+  </body>
+  <script>
+    var index;
+    function showSlides() {
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", " ");
+      }
+
+      slides[index].style.display = "block";
+      dots[index].className += " active";
+      index++;
+      if (index > slides.length - 1) {
+        index = 0;
+      }
+      setTimeout(showSlides, 5000);
+    }
+
+    showSlides((index = 0));
+    function currentSlide(n) {
+      showSlides((index = n));
+    }
+  </script>
+</html>

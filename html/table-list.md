@@ -7,11 +7,11 @@ HTML tables allow web developers to arrange data into rows and columns.
 #### Define an HTML Table
 The <table> tag defines an HTML table.
 
-Each table row is defined with a <tr> tag. Each table header is defined with a <th> tag. Each table data/cell is defined with a <td> tag.
+Each table row is defined with a \<tr\> tag. Each table header is defined with a \<th\> tag. Each table data/cell is defined with a \<td\> tag.
 
-By default, the text in <th> elements are bold and centered.
+By default, the text in \<th\> elements are bold and centered.
 
-By default, the text in <td> elements are regular and left-aligned.
+By default, the text in \<td\> elements are regular and left-aligned.
 
 ```html
 <table style="width:100%">
@@ -33,7 +33,7 @@ By default, the text in <td> elements are regular and left-aligned.
 </table>
 ```
 
-> Note: The <td> elements are the data containers of the table.
+> Note: The \<td\> elements are the data containers of the table.
 >They can contain all sorts of HTML elements; text, images, lists, other tables, etc.
 
 #### HTML Table - Add a Border
@@ -60,7 +60,7 @@ table, th, td {
 
 ### HTML Table - Add a Caption
 
-To add a caption to a table, use the <caption> tag:
+To add a caption to a table, use the \<caption\> tag:
 
 ```html
 <table style="width:100%">
@@ -79,7 +79,7 @@ To add a caption to a table, use the <caption> tag:
   </tr>
 </table>
 ```
-> Note: The <caption> tag must be inserted immediately after the <table> tag.
+> Note: The \<caption\> tag must be inserted immediately after the \<table\> tag.
 
 ### A Special Style for One Table
 

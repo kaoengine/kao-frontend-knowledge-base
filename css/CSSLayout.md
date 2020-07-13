@@ -146,7 +146,7 @@ Positioning is a very important factor in layout, and the position attribute is 
 
 - inherit: inherits the position attribute value of the parent element.
 
-> The concept of "normal flow" appears above, which should be translated into "normal flow" by rights. Document flow is called by most people. "Flow" can be imagined as flowing water. When we open the screen, browse the web page and scroll the mouse, the content of the web page will slide through like water flow. Document flow refers to the document layout from top to bottom and from left to right. **When we set the positon attribute of an element to `absolute` and `fixed`, it will break away from the document flow and no longer follow the rules from top to bottom and from left to right**.
+> The concept of "normal flow" appears above, which should be translated into "normal flow" by rights. Document flow is called by most people. "Flow" can be imagined as flowing water. When we open the screen, browse the web page and scroll the mouse, the content of the web page will slide through like water flow. Document flow refers to the document layout from top to bottom and from left to right. **When we set the position attribute of an element to `absolute` and `fixed`, it will break away from the document flow and no longer follow the rules from top to bottom and from left to right**.
 
 1. Relative example:
 

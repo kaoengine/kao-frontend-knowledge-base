@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet" />
+    <style type="text/css">
+        * {
+            scroll-behavior: smooth;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *:focus,
+        *:active {
+            outline: 0 !important;
+            box-shadow: 0 !important;
+
+        }
+
+        body {
+            background: #f9563a;
+            color: white;
+            min-height: 100vh;
+            margin-bottom: 2rem;
+        }
+
+        header {
+            text-shadow: 2px 2px 15px rgb(176, 230, 255);
+            font-size: 1.2rem;
+        }
+
+        header,
+        form {
+            min-height: 25vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form input,
+        form button {
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+            font-size: 1.8rem;
+            border: none;
+
+            background: #f4f4f4;
+        }
+
+        form button {
+            padding: 0.5rem 1rem;
+            color: rgba(74, 21, 110, 1);
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form button:hover {
+            background: rgba(74, 21, 110, 1);
+            color: white;
+        }
+
+        .todo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .todo-list {
+            min-width: 30%;
+            list-style: none;
+        }
+
+        .todo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem;
+            background: white;
+            font-size: 1.5rem;
+            transition: all 0.5s ease;
+        }
+
+        form input,
+        .todo {
+            color: rgb(88, 87, 87);
+        }
+
+        .todo li {
+            flex: 1;
+        }
+
+        .trash-btn,
+        .check-btn {
+            background-color: rgba(74, 21, 110, 1);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: 0.2s all ease;
+        }
+
+        .check-btn {
+            background-color: rgba(68, 100, 173, 1);
+        }
+
+        .check-btn:hover {
+            background-color: rgba(68, 100, 173, 1);
+            color: white;
+        }
+
+        .trash-btn:hover {
+            color: white;
+            background-color: rgba(74, 21, 110, 1);
+        }
+
+        .todo-item {
+            padding: 0rem 1.2rem;
+        }
+
+        .fa-trash,
+        .fa-check {
+            pointer-events: none;
+        }
+
+        .fall {
+            animation: fall-apart 0.5s ease-out;
+        }
+
+        @keyframes fall-apart {
+            100% {
+                transform: rotateZ(20deg) translateY(8rem);
+                opacity: 0;
+            }
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            outline: none;
+            border: none;
+            font-size: 1.2em;
+            color: rgba(74, 21, 110, 1);
+            width: 15rem;
+            cursor: pointer;
+            padding: 1rem;
+        }
+
+
+        .select {
+            margin: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .select::after {
+            content: "\25BC";
+            position: absolute;
+            background: rgba(74, 21, 110, 1);
+            top: 0;
+            right: 0;
+            padding: 1.2rem;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .select:hover::after {
+            background-color: white;
+            color: rgba(74, 21, 110, 1);
+        }
+
+
+        .completed{
+            opacity: 0.5;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Todo List Javascript</h1>
+    </header>
+
+    <form>
+        <input type="text" class="todo-input" maxlength="40" />
+        <button class="todo-button" type="submit">
+            <i class="fas fa-plus-square"></i>
+        </button>
+        <div class="select">
+            <select name="todos" class="filter-todo">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="uncompleted">Uncompleted</option>
+            </select>
+        </div>
+    </form>
+    <div class="todo-container">
+        <ul class="todo-list"></ul>
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/e7ebc2fc39.js" crossorigin="anonymous"></script>
+    <script>
+        // Selectors
+
+        const todoInput = document.querySelector(".todo-input");
+        const todoButton = document.querySelector(".todo-button");
+        const todoList = document.querySelector(".todo-list");
+        const filter = document.querySelector(".filter-todo");
+
+        // Event Listeners
+
+        document.addEventListener("DOMContentLoaded", getTodos);
+        todoButton.addEventListener("click", addTodo);
+        todoList.addEventListener("click", deleteCheck);
+        filter.addEventListener("change", filterTodo);
+
+        // Functions
+
+        function createComponents(value) {
+            // Create div
+            const todoDiv = document.createElement("div");
+            todoDiv.classList.add("todo");
+
+            // Create li
+            const newTodo = document.createElement("li");
+            newTodo.innerText = value;
+            newTodo.classList.add("todo-item");
+            todoDiv.appendChild(newTodo);
+
+            // Create Completed button
+            const completedButton = document.createElement("button");
+            completedButton.innerHTML = "<i class='fas fa-check'></i>";
+            completedButton.classList.add("check-btn");
+            todoDiv.appendChild(completedButton);
+
+            // Create Trash button
+            const trashButton = document.createElement("button");
+            trashButton.innerHTML = "<i class='fas fa-trash'></i>";
+            trashButton.classList.add("trash-btn");
+            todoDiv.appendChild(trashButton);
+
+            // Append all
+            todoList.appendChild(todoDiv);
+        }
+
+        function addTodo(e) {
+            // Validate and prevent refresh
+            e.preventDefault();
+            if (!todoInput.value) return;
+
+            // Creating all components
+            createComponents(todoInput.value);
+
+            // Add todo to local storage
+            saveLocalTodos(todoInput.value);
+
+            // Clear and focus Input
+            todoInput.value = "";
+        }
+
+        function deleteCheck(e) {
+            const item = e.target;
+            const todo = item.parentElement;
+
+            // delete todo
+            if (item.classList[0] === "trash-btn") {
+                todo.classList.add("fall");
+                todo.addEventListener("animationend", function () {
+                    removeLocalTodos(todo);
+                    todo.remove();
+                });
+            }
+
+            // completed todo
+            if (item.classList[0] === "check-btn") todo.classList.toggle("completed");
+        }
+
+        function filterTodo(e) {
+            const value = e.target.value;
+            const todos = todoList.childNodes;
+            console.log(value);
+            todos.forEach(function (todo) {
+                switch (value) {
+                    case "all":
+                        todo.style.display = "flex";
+                        break;
+                    case "completed":
+                        if (todo.classList.contains("completed")) {
+                            todo.style.display = "flex";
+                        } else {
+                            todo.style.display = "none";
+                        }
+
+                        break;
+                    case "uncompleted":
+                        if (!todo.classList.contains("completed")) {
+                            todo.style.display = "flex";
+                        } else {
+                            todo.style.display = "none";
+                        }
+                        break;
+                    default:
+                        return;
+                }
+            });
+        }
+
+        function saveLocalTodos(todo) {
+            // Check
+            let todos;
+
+            // if it HAS already an item, get it
+            if (localStorage.getItem("todos") !== null) {
+                todos = JSON.parse(localStorage.getItem("todos"));
+            } else {
+                todos = [];
+            }
+
+            todos.push(todo);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+
+        function getTodos() {
+            let todos;
+
+            // if it HAS already an item, get it
+            if (localStorage.getItem("todos") !== null) {
+                todos = JSON.parse(localStorage.getItem("todos"));
+            } else {
+                todos = [];
+            }
+
+            todos.forEach(function (todo) {
+                createComponents(todo);
+            });
+        }
+
+        function removeLocalTodos(todo) {
+            let todos;
+
+            if (localStorage.getItem("todos") !== null) {
+                todos = JSON.parse(localStorage.getItem("todos"));
+            } else {
+                todos = [];
+            }
+
+            const todoIndex = todo.children[0].innerText;
+            todos.splice(todos.indexOf(todoIndex), 1);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+
+    </script>
+
+
+</body>
+
+</html>
