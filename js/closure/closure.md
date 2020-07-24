@@ -454,7 +454,7 @@ function setupHelp() {
 setupHelp();
 ```
 
-This is another alternative could be to use forEach() to iterate over the helpText array and attach a listener to each <p>, as shown:
+This is another alternative could be to use forEach() to iterate over the helpText array and attach a listener to each **_p_**, as shown:
 
 ## Lastly, Performance considerations
 
