@@ -58,7 +58,7 @@ The Array that we created in our code and then inherit methods from the blueprin
 
 ![Alt text](/images/highLevelJS/arrayBluePrint.png)
 
-[To Know More about ProtoType - Click here](/prototype-chain.md)
+[To Know More about ProtoType - Click here](./prototype-chain.md)
 
 > FIRST-CLASS FUNCTIONS
 
