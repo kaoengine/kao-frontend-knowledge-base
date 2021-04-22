@@ -58,4 +58,20 @@ The Array that we created in our code and then inherit methods from the blueprin
 
 ![Alt text](/images/highLevelJS/arrayBluePrint.png)
 
-[To Know More about ProtoType - Click here](prototype-chain.md)
+[To Know More about ProtoType - Click here](/prototype-chain.md)
+
+> FIRST-CLASS FUNCTIONS
+
+Functions are simply treated as variables. We can pass them into other functions, and return them from functions.
+
+![Alt text](/images/highLevelJS/firstClassVar.png)
+
+To keep it in mind, Not All Languages have first-class functions.
+
+> DYNAMIC
+
+In JavaScript, we don't assign data types to variables and dynamic actually means **_dynamically-typed_** . They will get to be known when JavaScript Engine executes our code. Also, the type of variables can easily be changed as we reassign variables.
+
+On the other hand, for most other programming languages where we have to manually assign types to variables and this usually prevents bugs which is the reason why people say that JavaScript should be a **_strongly-typed_** language as well. Luckily, if you are the person who really likes this kind of strong type language, consider __TypeScript__ then.
+
+![Alt text](/images/highLevelJS/dynamic.png)
