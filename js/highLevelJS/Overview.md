@@ -75,3 +75,17 @@ In JavaScript, we don't assign data types to variables and dynamic actually mean
 On the other hand, for most other programming languages where we have to manually assign types to variables and this usually prevents bugs which is the reason why people say that JavaScript should be a **_strongly-typed_** language as well. Luckily, if you are the person who really likes this kind of strong type language, consider __TypeScript__ then.
 
 ![Alt text](/images/highLevelJS/dynamic.png)
+
+> SINGLE-THREADED AND NON-BLOCKING EVENT LOOP
+
+Now, it comes to the most complex topic.
+
+- First, what actually is a concurrency model ? It means how the JavaScript Engine handles multiple tasks happening at the same time.
+it runs in one single-thread , it can only do one thing at a time. Therefore, we need a way of handling multiple things happening at the same time. Moreover, in _Computing_ , a thread is like a set of instructions that is executed in the computer's CPU. Basically, the thread is where our code is executed in a machine's processor. 
+
+- Second, what if there is a long-running task ? like fetching data from a remote server ? and you think it sounds it would block a single thread where the code is running ? But of course it won't work that way. That is why we have so-called **_Non-blocking behavior_**, but what exactly does it mean or how to use it? By using **_Event Loop_** : Event Loop takes long running tasks and executes them in the _"background"_ , and puts them back in the main thread once they are finished.
+
+
+![Alt text](/images/highLevelJS/eventLoop.png)
+
+Actually, we will discuss about it in another section, this is just general point of view of the main concepts of JavaScript.
