@@ -301,3 +301,5 @@ function greet() {
 [Click here](https://coders-x.com/execution-context-va-execution-stack-trong-javascript/?__cf_chl_jschl_tk__=66f4c8919f5cf031dfdb9edbe41ac152fb19e990-1625226603-0-AZdmjP_Tebl_LMqVbrjre8pqNePpctGfDWEN6RWpKchO-IlTKB6VeBOOld6ro3GJKlypWoXEHBiaQcSG3APKfipBaPDvmcT3z9_UBfG71mFP2RMEKoQARKB0IFvEPPN5lbj916r7B5yopvDyPeLC43KvPe_ue_8NFo_wUz_TuU4CoDd3ShVbdX900vW7GxlNB_RJScFu1ta9R9iKANwxUP-wcXhbsypa27Bi1F0bZATwvCjzO7KEzgH-A08I8B3dH6yld0ts6DtpOR-gvEoetsW_mNy5UReSZdkbBTwPSGpz9IofaqdbCyLU9oIjO7bH6KOY4NdYF60U02VG4EL1GOb5Wl_GbDDoRb4Ts-Zxet_04TePIImZ_rih-w6Ir-gx4hBtmDlxiYFyOZXX7yzLl6k8-8P-SV5Qc8wkyt0o485VZ5Yg-QsGiWLNePq-NBNI35z2vlDSvSXiC-TuI9F8QTtExzY9RsDIaniW666ytJMTibiNqkoK1nqw-csHwwCV46aW6_rrkJH3TrSNdTG7zWo).
 
 2. For more clearer Explanation and deeper in English [click here](https://www.javascripttutorial.net/javascript-execution-context/).
+
+### Move to the next lecture [click here - Scope and Scope chain](./scope.md)
