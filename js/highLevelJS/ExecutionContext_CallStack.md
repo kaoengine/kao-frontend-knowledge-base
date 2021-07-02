@@ -23,7 +23,7 @@
 
 <br/>
 
-### After that, we have 2 functions **first()** as the Functional Expression and **second()** as the Functional Declaration will also be declared so that they can be called LATER.
+### After that, we have 2 functions **first()** and **second()** as the Functional Declaration will also be declared so that they can be called LATER.
 
 <br/>
 
@@ -48,7 +48,7 @@
 -----------------------------------------------------------------------------------------
 ### Next, In any JavaScript Project, no matter how large it is, there is only EVER **__one global execution context__**. It is always there as the default context, and it is where top-level code will execute. And speaking of execution, now we have an environment where the top-level code can be executed, it finally is executed.
 
-![Alt text](/images/highLevelJS/topLevelExecuted.png)
+![Alt text](/images/highLevelJS/toplevelExecuted.png)
 
 
 ### Once the top-level code is finished, **Functions** finally start to execute as well.
