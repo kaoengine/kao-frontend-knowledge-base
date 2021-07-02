@@ -173,7 +173,7 @@ function greet() {
 - We have another variable **__c__** set to 2, and since this is a regular declaration function , NOT an arrow function, it also has the arguments object. And this object is an array which contains all the arguments that were passed into the function when it was called.
 
 <br/>
------------------------------------------------------------------------------------------
+
 ### Ok! that is enough for understanding the **Creation Phase**, but How will the engine keep track of the order in which functions we are called? And another question is How will it know where it currently is in the execution?
 
 <br/>
