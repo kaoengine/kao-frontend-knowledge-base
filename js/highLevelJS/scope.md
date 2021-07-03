@@ -56,7 +56,7 @@ c. Next, Inside the **__first__** function scope, we have the **__second__** fun
 
 * Continue moving on, so as we know, the variable **__var millenial__** belongs to the scope of **__first__** function. Therefore, the **__second__** scope can access to it. Also, the scope chain does apply to **Block Scope** as well. It means that inside purple color block scope, it can access all variables from its outer scopes. Like this example, it can access variables from **__first__** scope and from the **__global scope__**.
 
-* Therefore, we can conclude all variabels from **Global Scope** are accessible from everywhere, because they are always at the top of the Scope Chain. And many developers nowadays creating the name for it called as **Global Variables**.
+* Therefore, we can conclude all variables from **Global Scope** are accessible from everywhere, because they are always at the top of the Scope Chain. And many developers nowadays creating the name for it called as **Global Variables**.
 
 > ### NOTE: **__Block Scope__** cannot access to the scope of **__second__** scope and the same, the **__second__** scope cannot access to the scope of **__block scope__** as well. 
 > <br/>
@@ -90,9 +90,7 @@ c. Next, Inside the **__first__** function scope, we have the **__second__** fun
 
 ![Alt text](/images/highLevelJS/buildGS.png)
 
-* Now look at the **Global Scope** (image), we also call **__first()__**  in line 2 right? that is the reason why we have execution context for **__first() EC__** in the **Call Stack**, and also this **__first__** function of course, also gets its own scope, which contains all the variables that are declared inside of the function. This is the exactly the same as the **Variable Environment** of the functions execution context **__first() EC__**
-
-* However, this is not all :), because we have studied the **Scope Chain**
+* Now look at the **Global Scope** (image), we also call **__first()__**  in line 2 right? that is the reason why we have execution context for **__first() EC__** in the **Call Stack**, and also this **__first__** function of course, also gets its own scope, which contains all the variables that are declared inside of the function. This is the exactly the same as the **Variable Environment** of the functions execution context **__first() EC.__**
 
 ![Alt text](/images/highLevelJS/firstCall.png)
 
