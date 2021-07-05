@@ -92,3 +92,5 @@ And then when the _stack_ is empty, the callback function is passed to the _stac
 Since we do not have the browser, of course we cannot have **_WEB APIs_**. Instead we have multiple **_C++_** bindings and so called **_thread pool_**
 
 ![Alt text](/images/highLevelJS/runtimeNode.png)
+
+### [Now , You have observed what is inside of JavaScript Runtime. You have learned Why and What concepts, but exactly HOW can all the codes be executed ? Actually, it comes to deeper logics "The Execution Context and the Call Stack" - Click here](./ExecutionContext_CallStack.md)
