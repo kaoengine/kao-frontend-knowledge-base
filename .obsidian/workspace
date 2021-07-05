@@ -1,0 +1,122 @@
+{
+  "main": {
+    "id": "747a648772197344",
+    "type": "split",
+    "children": [
+      {
+        "id": "f38e147273d934f4",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "github/github.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "135c69334802ac8b",
+    "type": "split",
+    "children": [
+      {
+        "id": "8514960da4d17571",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2f6582586facd179",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "6826412bdd1d0d1f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "69cea86c1a541eb4",
+    "type": "split",
+    "children": [
+      {
+        "id": "7153dd22652ac286",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eb8fe6125187229a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "github/github.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "d73b59e2b424f688",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "18c4c1d765e0107d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "github/github.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "f38e147273d934f4",
+  "lastOpenFiles": [
+    "github/github.md",
+    "git/rebase-merge.md",
+    "git/pandoc.md",
+    "css/FlexLayout.md",
+    "css/CSSSelectorVN.md",
+    "css/CssSelectors.md",
+    "css/CSSLayout.md",
+    "css/BoxSizing.md",
+    "css/BoxModel-vn.md",
+    "css/BoxModel.md"
+  ]
+}
