@@ -1,25 +1,14 @@
-# TypeScript!
 
+
+![TypeScript-Classes](./images/ts-panel.png)
+# TypeScript With Me
 ---
-
-# TypeScript!
-
 ## *JavaScript that scales.*
 
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 
----
 
-# TypeSecript
-
-``` js
-// JavaScript, types are implicit
-const add = (a, b) => a + b
-```
-
----
-
-# TypeSecript
+# TypeScript
 
 ``` js
 // JavaScript, types are implicit
@@ -31,27 +20,13 @@ const add = (a, b) => a + b
 const add = (a: number, b: number): number => a + b
 ```
 
----
-
-[.build-lists: true]
-
-# Why Types?
-
-- Catch bugs
-- Catch bugs (earlier)
-- Documentation & productivity
-- GraphQL has a type system
-- Refactoring
-
----
-
 # Why Types?
 
 - Catch bugs
 - Catch bugs (earlier)
 - Documentation / improve productivity
 - GraphQL has a type system
-- **Refactoring**
+- **🤩 Refactoring**
 
 ---
 
@@ -87,7 +62,7 @@ public class Main {
 
 ![fit](./images/python-type-hints.png)
 
-^^^
+
 Python
 
 ---
@@ -104,12 +79,7 @@ so some kind of structure for soft-typing or something like that.
 
 [ruby 3x3: matz koichi and tenderlove on the future of ruby performance]: https://blog.heroku.com/ruby-3-by-3
 
-^^^
 Ruby
-
----
-
-![fit](./images/typed-js.png)
 
 ---
 
@@ -117,18 +87,15 @@ Ruby
 
 ![inline](./images/typed-js.png)
 
-^^^
-- gradual
-pragmatic
-good adoption story
+
+- gradual pragmatic
+- good adoption story
 - Community adoption
 - VS Code & Language server
 - Apollo
-Formik are authored in it
+- Formik are authored in it
 
 ---
-
-[.build-lists: true]
 
 ## Gradual Adoption Story
 
@@ -156,13 +123,6 @@ Formik are authored in it
 ![inline](./images/vscode.png)
 
 ---
-
-## Language Server
-
-![inline](./images/language-server.png)
-
----
-
 ## Library Support
 
 - Apollo & formik are authored in TypeScript
@@ -183,12 +143,32 @@ Formik are authored in it
     --strictFunctionTypes
     ```
 
+## Core concept 
+- Type system
+- Self Confidence
+- Decipherable
+- Observable
+- Contractor
+- Transparent
+- Isolate the problem quickly
+- Non-exception Failures 
+- Explicit Types
+- Erased Types
+- DownLeveling
+- Strictness
+
 ## Learn With CheatSheet 
 ![TypeScript-Classes](./images/TypeScript%20Classes.png)
 ![TypeScript-Control-Flow-Analysis](./images/TypeScript%20Control%20Flow%20Analysis.png) 
 ![TypeScript-Interfaces](./images/TypeScript%20Interfaces.png) 
 ![TypeScript-Types](./images/TypeScript%20Types.png) 
 
+## Common Questions:
+1. Differences Between Type Aliases and Interfaces? *Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type , the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.*
+
+## Typescript in Advance
+- https://www.typescriptlang.org/assets/typescript-handbook.pdf
+
 ## Work In Process
-### best-practices-for-exception-handling-in-typescript
+1. Best practices for exception handling in typescript?
 https://kaoengine.com/best-practices-for-exception-handling-in-typescript
